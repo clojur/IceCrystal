@@ -1,0 +1,27 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// NoesisGUI - http://www.noesisengine.com
+// Copyright (c) 2013 Noesis Technologies S.L. All Rights Reserved.
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef __APP_UISUBCLASSEDWINDOW_H__
+#define __APP_UISUBCLASSEDWINDOW_H__
+
+
+#include <NsCore/Noesis.h>
+#include <AppKit/NSWindow.h>
+
+
+namespace NoesisApp { class AppKitDisplay; }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+@interface UISubclassedWindow : NSWindow<NSWindowDelegate>
+{
+@public
+    NoesisApp::AppKitDisplay* display;
+}
+@end
+
+
+#endif

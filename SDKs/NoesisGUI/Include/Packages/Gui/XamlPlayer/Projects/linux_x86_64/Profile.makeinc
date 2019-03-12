@@ -1,0 +1,51 @@
+####################################################################################################
+# PROJECT: Gui.XamlPlayer
+####################################################################################################
+
+ifeq ($(V), 1)
+ Q =
+else
+ Q = @
+endif
+
+$(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/pch.h.gch: $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/pch.h
+	@echo [PH] Gui.XamlPlayer/$(notdir $<)
+	$(Q)g++ $(CPPFLAGS_PROFILE) -I$(PREFIX)/Gui/Core/Include/ -I$(PREFIX)/Gui/XamlPlayer/Include/ -I$(PREFIX)/App/Display/Include/ -I$(PREFIX)/Gui/DependencySystem/Include/ -I$(PREFIX)/Drawing/Types/Include/ -I$(PREFIX)/Core/Kernel/Include/ -I$(PREFIX)/Gui/Animation/Include/ -I$(PREFIX)/Math/VectorMath/Include/ -I$(PREFIX)/Gui/CachedFontProvider/Include/ -I$(PREFIX)/../../Include/ -I$(PREFIX)/Gui/Providers/Include/ -I$(PREFIX)/Core/NSTL/Include/ -I$(PREFIX)/Core/Nullable/Include/ -I$(PREFIX)/App/DisplayLauncher/Include/ -I$(PREFIX)/Math/Utils/Include/ -I$(PREFIX)/App/ApplicationLauncher/Include/ -I$(PREFIX)/App/Launcher/Include/ -I$(PREFIX)/../../3rdParty/EASTL/local/include/ -I$(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile -DNS_BUILD -DNS_CONFIG=Profile -DNS_VERSION=2.1.0f1 -DNS_APP_FRAMEWORK -DNS_PROFILE_CFG -DNS_ASSERTS_ENABLED=0 -DNS_INSTRUMENTED_ENABLED=1 -DNS_MINIMUM_LOG_LEVEL=2 -march=x86-64 -m64 -c -MMD -fPIC -o $@ $<
+
+$(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/%.o: $(PREFIX)/Gui/XamlPlayer/Src/%.cpp $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/pch.h.gch
+	@echo [CC] Gui/XamlPlayer/$(notdir $<)
+	$(Q)g++ $(CPPFLAGS_PROFILE) -I$(PREFIX)/Gui/Core/Include/ -I$(PREFIX)/Gui/XamlPlayer/Include/ -I$(PREFIX)/App/Display/Include/ -I$(PREFIX)/Gui/DependencySystem/Include/ -I$(PREFIX)/Drawing/Types/Include/ -I$(PREFIX)/Core/Kernel/Include/ -I$(PREFIX)/Gui/Animation/Include/ -I$(PREFIX)/Math/VectorMath/Include/ -I$(PREFIX)/Gui/CachedFontProvider/Include/ -I$(PREFIX)/../../Include/ -I$(PREFIX)/Gui/Providers/Include/ -I$(PREFIX)/Core/NSTL/Include/ -I$(PREFIX)/Core/Nullable/Include/ -I$(PREFIX)/App/DisplayLauncher/Include/ -I$(PREFIX)/Math/Utils/Include/ -I$(PREFIX)/App/ApplicationLauncher/Include/ -I$(PREFIX)/App/Launcher/Include/ -I$(PREFIX)/../../3rdParty/EASTL/local/include/ -I$(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile -DNS_BUILD -DNS_CONFIG=Profile -DNS_VERSION=2.1.0f1 -DNS_APP_FRAMEWORK -DNS_PROFILE_CFG -DNS_ASSERTS_ENABLED=0 -DNS_INSTRUMENTED_ENABLED=1 -DNS_MINIMUM_LOG_LEVEL=2 -march=x86-64 -m64 -c -MMD -fPIC -o $@ $< -include pch.h
+
+$(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/%.o: $(PREFIX)/Gui/XamlPlayer/Src/%.c
+	@echo [CC] Gui/XamlPlayer/$(notdir $<)
+	$(Q)gcc $(CFLAGS_PROFILE) -I$(PREFIX)/Gui/Core/Include/ -I$(PREFIX)/Gui/XamlPlayer/Include/ -I$(PREFIX)/App/Display/Include/ -I$(PREFIX)/Gui/DependencySystem/Include/ -I$(PREFIX)/Drawing/Types/Include/ -I$(PREFIX)/Core/Kernel/Include/ -I$(PREFIX)/Gui/Animation/Include/ -I$(PREFIX)/Math/VectorMath/Include/ -I$(PREFIX)/Gui/CachedFontProvider/Include/ -I$(PREFIX)/../../Include/ -I$(PREFIX)/Gui/Providers/Include/ -I$(PREFIX)/Core/NSTL/Include/ -I$(PREFIX)/Core/Nullable/Include/ -I$(PREFIX)/App/DisplayLauncher/Include/ -I$(PREFIX)/Math/Utils/Include/ -I$(PREFIX)/App/ApplicationLauncher/Include/ -I$(PREFIX)/App/Launcher/Include/ -I$(PREFIX)/../../3rdParty/EASTL/local/include/ -I$(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile -DNS_BUILD -DNS_CONFIG=Profile -DNS_VERSION=2.1.0f1 -DNS_APP_FRAMEWORK -DNS_PROFILE_CFG -DNS_ASSERTS_ENABLED=0 -DNS_INSTRUMENTED_ENABLED=1 -DNS_MINIMUM_LOG_LEVEL=2 -march=x86-64 -m64 -c -MMD -fPIC -o $@ $<
+
+$(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/App.xaml.bin.h: $(PREFIX)/Gui/XamlPlayer/Src/App.xaml
+	@echo [BH] Gui/XamlPlayer/$(notdir $<)
+	$(Q)mkdir -p $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile 
+	$(Q)$(PREFIX)/../Tools/Bin2h/bin2h.py $(PREFIX)/Gui/XamlPlayer/Src/App.xaml > $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/App.xaml.bin.h 
+
+$(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/MainWindow.xaml.bin.h: $(PREFIX)/Gui/XamlPlayer/Src/MainWindow.xaml
+	@echo [BH] Gui/XamlPlayer/$(notdir $<)
+	$(Q)mkdir -p $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile 
+	$(Q)$(PREFIX)/../Tools/Bin2h/bin2h.py $(PREFIX)/Gui/XamlPlayer/Src/MainWindow.xaml > $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/MainWindow.xaml.bin.h 
+
+$(BINDIR)/Gui.XamlPlayer: $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/App.xaml.bin.h $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/MainWindow.xaml.bin.h $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/Main.o $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/MainWindow.xaml.o $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/App.xaml.o $(BINDIR)/libNoesis.so $(BINDIR)/libNoesisApp.so
+	@echo [LD] $(notdir $@)
+	$(Q)g++ $(LFLAGS_PROFILE) -m64 -pie -Wl,-rpath,\$$ORIGIN -Wl,-rpath,$(PREFIX)/../../Bin/linux_x86_64 -L$(PREFIX)/../../Bin/linux_x86_64  -o $(BINDIR)/Gui.XamlPlayer $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/Main.o $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/MainWindow.xaml.o $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/App.xaml.o -lNoesisApp -lNoesis
+	@echo [STRIP] $(notdir $@)
+	$(Q)objcopy --only-keep-debug $(BINDIR)/Gui.XamlPlayer $(BINDIR)/Gui.XamlPlayer.debug 
+	$(Q)strip --strip-unneeded $(BINDIR)/Gui.XamlPlayer
+	$(Q)objcopy --add-gnu-debuglink=$(BINDIR)/Gui.XamlPlayer.debug $(BINDIR)/Gui.XamlPlayer
+
+PROFILE_CLEAN_GUI_XAMLPLAYER:
+	@rm -f $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/Main.o $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/MainWindow.xaml.o $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/App.xaml.o $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/App.xaml.bin.h $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/MainWindow.xaml.bin.h $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/pch.h.gch
+	@rm -f $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/pch.h.d $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/Main.d $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/MainWindow.xaml.d $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/App.xaml.d
+	@rm -f $(BINDIR)/Gui.XamlPlayer
+	@rm -f $(BINDIR)/Gui.XamlPlayer.debug
+
+PROFILE_COMPILE_TARGETS += $(BINDIR)/Gui.XamlPlayer
+PROFILE_ADDITIONAL_DEPS += $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/pch.h.d $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/Main.d $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/MainWindow.xaml.d $(PREFIX)/Gui/XamlPlayer/Projects/linux_x86_64/_build/Profile/App.xaml.d
+PROFILE_CLEAN_TARGETS += PROFILE_CLEAN_GUI_XAMLPLAYER
+
+

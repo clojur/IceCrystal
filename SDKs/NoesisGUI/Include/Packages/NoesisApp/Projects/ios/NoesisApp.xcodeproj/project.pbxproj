@@ -1,0 +1,737 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 46;
+    objects = {
+
+/* Begin PBXBuildFile section */
+        8B4B7515674B46639C2A962B = {isa = PBXBuildFile; fileRef = A9D3E04F524F4D54B66CD799 /* Display.cpp */; };
+        B4C1464C3A96449CA41C0851 = {isa = PBXBuildFile; fileRef = 9E66FF21379047F391F18E7C /* App.Display.cpp */; };
+        1A7FE471DD5E411394A8FDAF = {isa = PBXBuildFile; fileRef = A0FB265EB9054E8B8C9F0795 /* ViewController.mm */; };
+        5B261F22D5144020BD99531C = {isa = PBXBuildFile; fileRef = FEA28FFCBB4F40E3BEE239CA /* View.mm */; };
+        C35D2D04025F410CA1AC3AA9 = {isa = PBXBuildFile; fileRef = 78671CE36BF44EF89759F483 /* App.UIKitDisplay.mm */; };
+        092A9D84C3A34574A8134B81 = {isa = PBXBuildFile; fileRef = 9549E336B1C14014AF3D96B9 /* UIKitDisplay.mm */; };
+        225A9C60332E4B658D3C92FB = {isa = PBXBuildFile; fileRef = 25669743609641859F6E7958 /* EmbeddedXamlProvider.cpp */; };
+        61E9DABDD14043199158E4ED = {isa = PBXBuildFile; fileRef = 662613F7E1E244AD8C0DDE55 /* EmbeddedTextureProvider.cpp */; };
+        8ECFDF31848B4FCCAFF3C5B6 = {isa = PBXBuildFile; fileRef = 87D17FB3FE22439BA2D01CE4 /* LocalFontProvider.cpp */; };
+        36F79EDEB64240F780953E3C = {isa = PBXBuildFile; fileRef = 68210C0186594B7598010E50 /* App.Launcher.cpp */; };
+        409BB19F48A34883974BF641 = {isa = PBXBuildFile; fileRef = 4F83B91FD16642B0B7068FD5 /* LocalTextureProvider.cpp */; };
+        B017079100834A85B992959D = {isa = PBXBuildFile; fileRef = 6D0A121F88974E6F9096CD28 /* EmbeddedFontProvider.cpp */; };
+        0FB41AE9A31449A3997A62C5 = {isa = PBXBuildFile; fileRef = EDC47126C3E04D94BCE572D1 /* FileTextureProvider.cpp */; };
+        36035D00CB234117B75D3C49 = {isa = PBXBuildFile; fileRef = 97432FB600C74D91B03BA45C /* LocalXamlProvider.cpp */; };
+        09EFD9B07FC84A5D870E7C53 = {isa = PBXBuildFile; fileRef = DE031095E407498DA3C11A46 /* CommandLine.cpp */; };
+        4698847C01484219BEE5CAF3 = {isa = PBXBuildFile; fileRef = ED016E29DD4D4A288454307E /* Launcher.cpp */; };
+        017E6BDA6241433EA5685E42 = {isa = PBXBuildFile; fileRef = 95B1340D359842B596BBD88C /* App.DisplayLauncher.cpp */; };
+        D3BFBAC56B264D36BF0EE4A2 = {isa = PBXBuildFile; fileRef = 74AEF233BCBE4E7CA5337DC1 /* DisplayLauncher.cpp */; };
+        692E0C9C51D84E78B93F5006 = {isa = PBXBuildFile; fileRef = 4C97F108EF2D46628F0F69DF /* StatsOverlay.xaml */; };
+        060C9179AC2D483588565EFC = {isa = PBXBuildFile; fileRef = 6926AE82560044AB868E834F /* dripicons-v2.ttf */; };
+        9B6A47DF89EC42FA97C18FD5 = {isa = PBXBuildFile; fileRef = 6D565E9DA05E4BC08D90D831 /* Window.cpp */; };
+        65BF684742C74838A6B3C838 = {isa = PBXBuildFile; fileRef = 6384864C4CCD4752BE2495F8 /* App.ApplicationLauncher.cpp */; };
+        84304743E55A44B0812A50F1 = {isa = PBXBuildFile; fileRef = D819BFED503D49FBB6E69144 /* ApplicationLauncher.cpp */; };
+        6FA947E556E5481FA153151F = {isa = PBXBuildFile; fileRef = 7B47965910874C859C519684 /* Application.cpp */; };
+        BF09C4C282EE44EEB616E009 = {isa = PBXBuildFile; fileRef = 1F21ADEA12DB42439A3FB955 /* Image.cpp */; };
+        523145673E654042A787D805 = {isa = PBXBuildFile; fileRef = 2575FF86060244EAB4DC6732 /* RenderContext.cpp */; };
+        AB69C7B6ED93470E9063FF00 = {isa = PBXBuildFile; fileRef = AAD59C57B11044C197667CA0 /* Render.RenderContext.cpp */; };
+        47A521E7E61C4D23BA53B4D5 = {isa = PBXBuildFile; fileRef = 8D4FDD21002640B69F9D6A8A /* init.cpp */; };
+        1A23DBAB125E45878563F95D = {isa = PBXBuildFile; fileRef = 76589E5086D141FC870EFA31 /* Render.GLRenderDevice.cpp */; };
+        A891EDB3250940979B150100 = {isa = PBXBuildFile; fileRef = 28290214312F4DBBA16E0F93 /* GLRenderDevice.cpp */; };
+        E962F8ADE565483183BD16F4 = {isa = PBXBuildFile; fileRef = 86725745E5F14A2984B5A1A0 /* Render.GLRenderContext.cpp */; };
+        F7CCE4EBA89C47F8A789DE8B = {isa = PBXBuildFile; fileRef = 97480B313D4C48C6B7144B26 /* NSGL.mm */; };
+        2358C65D3337495F81C2BBA5 = {isa = PBXBuildFile; fileRef = 03053C2A371B4B33858E15AC /* EAGL.mm */; };
+        A6ED45F8A3D446948597AA54 = {isa = PBXBuildFile; fileRef = 402EAA6A0FEA491C9FDBED61 /* GLRenderContext.cpp */; };
+        2BD37E29B6C746F9BE4F90AA = {isa = PBXBuildFile; fileRef = 3686611DC7944DF5923F8BB9 /* Render.MTLRenderDevice.mm */; };
+        EEE4A85F974745A2B40750B8 = {isa = PBXBuildFile; fileRef = 5F47112B9C854237B29CC9CF /* MTLRenderDevice.mm */; };
+        9FF149E931CE4F26B6736933 = {isa = PBXBuildFile; fileRef = DC3E1641998548DCADD69A74 /* Render.MTLRenderContext.mm */; };
+        CD9AC1A4072B44DBB4E59374 = {isa = PBXBuildFile; fileRef = E43A42406C0A4AB599B70711 /* MTLRenderContext.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+        4A4ADFCF597244AA9D2633E9 /* libNoesisApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNoesisApp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+        295877DF8D1B4A48A81EDBF8 /* Common.xcconfig */ = {isa = PBXFileReference; explicitFileType = text.xcconfig; name = "Common.xcconfig"; path = "../../../../../Config/Common.xcconfig"; sourceTree = SOURCE_ROOT; };
+        C60DD02436F248B0895D7107 /* Release.xcconfig */ = {isa = PBXFileReference; explicitFileType = text.xcconfig; name = "Release.xcconfig"; path = "../../../../../Config/Release/Release.xcconfig"; sourceTree = SOURCE_ROOT; };
+        97FAFDFBE7D94934A0386422 /* Profile.xcconfig */ = {isa = PBXFileReference; explicitFileType = text.xcconfig; name = "Profile.xcconfig"; path = "../../../../../Config/Profile/Profile.xcconfig"; sourceTree = SOURCE_ROOT; };
+        281E238186504AB3A7FD7EAF /* Debug.xcconfig */ = {isa = PBXFileReference; explicitFileType = text.xcconfig; name = "Debug.xcconfig"; path = "../../../../../Config/Debug/Debug.xcconfig"; sourceTree = SOURCE_ROOT; };
+        9CCB4115881D4F2195A7B1DA /* DisplayApi.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "DisplayApi.h"; path = "../../../App/Display/Include/NsApp/DisplayApi.h"; sourceTree = SOURCE_ROOT; };
+        91C41AC6808A4630A1F05BE7 /* Display.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "Display.h"; path = "../../../App/Display/Include/NsApp/Display.h"; sourceTree = SOURCE_ROOT; };
+        A9D3E04F524F4D54B66CD799 /* Display.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "Display.cpp"; path = "../../../App/Display/Src/Display.cpp"; sourceTree = SOURCE_ROOT; };
+        9E66FF21379047F391F18E7C /* App.Display.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "App.Display.cpp"; path = "../../../App/Display/Src/App.Display.cpp"; sourceTree = SOURCE_ROOT; };
+        A0FB265EB9054E8B8C9F0795 /* ViewController.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "ViewController.mm"; path = "../../../App/UIKitDisplay/Src/ViewController.mm"; sourceTree = SOURCE_ROOT; };
+        FEA28FFCBB4F40E3BEE239CA /* View.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "View.mm"; path = "../../../App/UIKitDisplay/Src/View.mm"; sourceTree = SOURCE_ROOT; };
+        78671CE36BF44EF89759F483 /* App.UIKitDisplay.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "App.UIKitDisplay.mm"; path = "../../../App/UIKitDisplay/Src/App.UIKitDisplay.mm"; sourceTree = SOURCE_ROOT; };
+        E8A8203DAF2C4A588680BC79 /* UIKitDisplay.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "UIKitDisplay.h"; path = "../../../App/UIKitDisplay/Src/UIKitDisplay.h"; sourceTree = SOURCE_ROOT; };
+        C4177780567440AC8533EAD7 /* View.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "View.h"; path = "../../../App/UIKitDisplay/Src/View.h"; sourceTree = SOURCE_ROOT; };
+        9549E336B1C14014AF3D96B9 /* UIKitDisplay.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "UIKitDisplay.mm"; path = "../../../App/UIKitDisplay/Src/UIKitDisplay.mm"; sourceTree = SOURCE_ROOT; };
+        5FAD0BAB5CF443D18CCA82FE /* ViewController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "ViewController.h"; path = "../../../App/UIKitDisplay/Src/ViewController.h"; sourceTree = SOURCE_ROOT; };
+        3CFE36FC87294C8EBFB570CE /* LocalTextureProvider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "LocalTextureProvider.h"; path = "../../../App/Launcher/Include/NsApp/LocalTextureProvider.h"; sourceTree = SOURCE_ROOT; };
+        38D549866C274B76B47E7569 /* FileTextureProvider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "FileTextureProvider.h"; path = "../../../App/Launcher/Include/NsApp/FileTextureProvider.h"; sourceTree = SOURCE_ROOT; };
+        C92733543C9D4E44AA690371 /* LocalXamlProvider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "LocalXamlProvider.h"; path = "../../../App/Launcher/Include/NsApp/LocalXamlProvider.h"; sourceTree = SOURCE_ROOT; };
+        492116F1C63B447AA546EEE6 /* LauncherApi.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "LauncherApi.h"; path = "../../../App/Launcher/Include/NsApp/LauncherApi.h"; sourceTree = SOURCE_ROOT; };
+        1CDB0661357E49EEA87CE59D /* LocalFontProvider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "LocalFontProvider.h"; path = "../../../App/Launcher/Include/NsApp/LocalFontProvider.h"; sourceTree = SOURCE_ROOT; };
+        9DCC8730A1E141BB95AE78A0 /* EmbeddedTextureProvider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "EmbeddedTextureProvider.h"; path = "../../../App/Launcher/Include/NsApp/EmbeddedTextureProvider.h"; sourceTree = SOURCE_ROOT; };
+        BF9A0D36A6834361AE10F19B /* Launcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "Launcher.h"; path = "../../../App/Launcher/Include/NsApp/Launcher.h"; sourceTree = SOURCE_ROOT; };
+        A7FD4AA65B0245B6994674C0 /* EntryPoint.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "EntryPoint.h"; path = "../../../App/Launcher/Include/NsApp/EntryPoint.h"; sourceTree = SOURCE_ROOT; };
+        9745E16CDBF24FB69C7A054F /* EmbeddedXamlProvider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "EmbeddedXamlProvider.h"; path = "../../../App/Launcher/Include/NsApp/EmbeddedXamlProvider.h"; sourceTree = SOURCE_ROOT; };
+        A8A991CBEFB340A0891A3C7E /* CommandLine.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "CommandLine.h"; path = "../../../App/Launcher/Include/NsApp/CommandLine.h"; sourceTree = SOURCE_ROOT; };
+        08680581E27C4F99B48C12C1 /* EmbeddedFontProvider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "EmbeddedFontProvider.h"; path = "../../../App/Launcher/Include/NsApp/EmbeddedFontProvider.h"; sourceTree = SOURCE_ROOT; };
+        25669743609641859F6E7958 /* EmbeddedXamlProvider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "EmbeddedXamlProvider.cpp"; path = "../../../App/Launcher/Src/EmbeddedXamlProvider.cpp"; sourceTree = SOURCE_ROOT; };
+        662613F7E1E244AD8C0DDE55 /* EmbeddedTextureProvider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "EmbeddedTextureProvider.cpp"; path = "../../../App/Launcher/Src/EmbeddedTextureProvider.cpp"; sourceTree = SOURCE_ROOT; };
+        87D17FB3FE22439BA2D01CE4 /* LocalFontProvider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "LocalFontProvider.cpp"; path = "../../../App/Launcher/Src/LocalFontProvider.cpp"; sourceTree = SOURCE_ROOT; };
+        68210C0186594B7598010E50 /* App.Launcher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "App.Launcher.cpp"; path = "../../../App/Launcher/Src/App.Launcher.cpp"; sourceTree = SOURCE_ROOT; };
+        4F83B91FD16642B0B7068FD5 /* LocalTextureProvider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "LocalTextureProvider.cpp"; path = "../../../App/Launcher/Src/LocalTextureProvider.cpp"; sourceTree = SOURCE_ROOT; };
+        D3A85B37F5E6471594380E42 /* stb_image.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "stb_image.h"; path = "../../../App/Launcher/Src/stb_image.h"; sourceTree = SOURCE_ROOT; };
+        6D0A121F88974E6F9096CD28 /* EmbeddedFontProvider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "EmbeddedFontProvider.cpp"; path = "../../../App/Launcher/Src/EmbeddedFontProvider.cpp"; sourceTree = SOURCE_ROOT; };
+        EDC47126C3E04D94BCE572D1 /* FileTextureProvider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "FileTextureProvider.cpp"; path = "../../../App/Launcher/Src/FileTextureProvider.cpp"; sourceTree = SOURCE_ROOT; };
+        97432FB600C74D91B03BA45C /* LocalXamlProvider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "LocalXamlProvider.cpp"; path = "../../../App/Launcher/Src/LocalXamlProvider.cpp"; sourceTree = SOURCE_ROOT; };
+        DE031095E407498DA3C11A46 /* CommandLine.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "CommandLine.cpp"; path = "../../../App/Launcher/Src/CommandLine.cpp"; sourceTree = SOURCE_ROOT; };
+        ED016E29DD4D4A288454307E /* Launcher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "Launcher.cpp"; path = "../../../App/Launcher/Src/Launcher.cpp"; sourceTree = SOURCE_ROOT; };
+        A1BAA0275E194C5B9C0113F9 /* DisplayLauncherApi.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "DisplayLauncherApi.h"; path = "../../../App/DisplayLauncher/Include/NsApp/DisplayLauncherApi.h"; sourceTree = SOURCE_ROOT; };
+        D51F853E3C994E2A9CF0206D /* DisplayLauncher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "DisplayLauncher.h"; path = "../../../App/DisplayLauncher/Include/NsApp/DisplayLauncher.h"; sourceTree = SOURCE_ROOT; };
+        95B1340D359842B596BBD88C /* App.DisplayLauncher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "App.DisplayLauncher.cpp"; path = "../../../App/DisplayLauncher/Src/App.DisplayLauncher.cpp"; sourceTree = SOURCE_ROOT; };
+        74AEF233BCBE4E7CA5337DC1 /* DisplayLauncher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "DisplayLauncher.cpp"; path = "../../../App/DisplayLauncher/Src/DisplayLauncher.cpp"; sourceTree = SOURCE_ROOT; };
+        F0B3828EBD7F4DC08F2CB931 /* ApplicationLauncher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "ApplicationLauncher.h"; path = "../../../App/ApplicationLauncher/Include/NsApp/ApplicationLauncher.h"; sourceTree = SOURCE_ROOT; };
+        9D3D28608E70458E938CE0D2 /* Application.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "Application.h"; path = "../../../App/ApplicationLauncher/Include/NsApp/Application.h"; sourceTree = SOURCE_ROOT; };
+        4D8F07D127DF4175BA7FFF90 /* Window.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "Window.h"; path = "../../../App/ApplicationLauncher/Include/NsApp/Window.h"; sourceTree = SOURCE_ROOT; };
+        A6A9C1C6995F4F33997C5CD9 /* ApplicationLauncherApi.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "ApplicationLauncherApi.h"; path = "../../../App/ApplicationLauncher/Include/NsApp/ApplicationLauncherApi.h"; sourceTree = SOURCE_ROOT; };
+        6D565E9DA05E4BC08D90D831 /* Window.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "Window.cpp"; path = "../../../App/ApplicationLauncher/Src/Window.cpp"; sourceTree = SOURCE_ROOT; };
+        6384864C4CCD4752BE2495F8 /* App.ApplicationLauncher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "App.ApplicationLauncher.cpp"; path = "../../../App/ApplicationLauncher/Src/App.ApplicationLauncher.cpp"; sourceTree = SOURCE_ROOT; };
+        D819BFED503D49FBB6E69144 /* ApplicationLauncher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "ApplicationLauncher.cpp"; path = "../../../App/ApplicationLauncher/Src/ApplicationLauncher.cpp"; sourceTree = SOURCE_ROOT; };
+        7B47965910874C859C519684 /* Application.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "Application.cpp"; path = "../../../App/ApplicationLauncher/Src/Application.cpp"; sourceTree = SOURCE_ROOT; };
+        4C97F108EF2D46628F0F69DF /* StatsOverlay.xaml */ = {isa = PBXFileReference; lastKnownFileType = file; name = "StatsOverlay.xaml"; path = "../../../App/ApplicationLauncher/Src/StatsOverlay.xaml"; sourceTree = SOURCE_ROOT; };
+        6926AE82560044AB868E834F /* dripicons-v2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "dripicons-v2.ttf"; path = "../../../App/ApplicationLauncher/Src/dripicons-v2.ttf"; sourceTree = SOURCE_ROOT; };
+        C49F616C707C4465BCA33BDB /* RenderContext.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "RenderContext.h"; path = "../../../Render/RenderContext/Include/NsRender/RenderContext.h"; sourceTree = SOURCE_ROOT; };
+        5C3141F98C804285A3DCC995 /* RenderContextApi.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "RenderContextApi.h"; path = "../../../Render/RenderContext/Include/NsRender/RenderContextApi.h"; sourceTree = SOURCE_ROOT; };
+        19A97323B65246F7B558603D /* Image.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "Image.h"; path = "../../../Render/RenderContext/Include/NsRender/Image.h"; sourceTree = SOURCE_ROOT; };
+        1F21ADEA12DB42439A3FB955 /* Image.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "Image.cpp"; path = "../../../Render/RenderContext/Src/Image.cpp"; sourceTree = SOURCE_ROOT; };
+        2575FF86060244EAB4DC6732 /* RenderContext.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "RenderContext.cpp"; path = "../../../Render/RenderContext/Src/RenderContext.cpp"; sourceTree = SOURCE_ROOT; };
+        AAD59C57B11044C197667CA0 /* Render.RenderContext.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "Render.RenderContext.cpp"; path = "../../../Render/RenderContext/Src/Render.RenderContext.cpp"; sourceTree = SOURCE_ROOT; };
+        8D4FDD21002640B69F9D6A8A /* init.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "init.cpp"; path = "init.cpp"; sourceTree = SOURCE_ROOT; };
+        640785916385404199556CD5 /* GLRenderDeviceApi.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "GLRenderDeviceApi.h"; path = "../../../Render/GLRenderDevice/Include/NsRender/GLRenderDeviceApi.h"; sourceTree = SOURCE_ROOT; };
+        50E2507E16704F3499268C17 /* GLFactory.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "GLFactory.h"; path = "../../../Render/GLRenderDevice/Include/NsRender/GLFactory.h"; sourceTree = SOURCE_ROOT; };
+        F5AF809779224083828D8102 /* GLRenderDevice.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "GLRenderDevice.h"; path = "../../../Render/GLRenderDevice/Src/GLRenderDevice.h"; sourceTree = SOURCE_ROOT; };
+        DC68530E388B4506971F9201 /* ShadersGL120.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "ShadersGL120.h"; path = "../../../Render/GLRenderDevice/Src/ShadersGL120.h"; sourceTree = SOURCE_ROOT; };
+        76589E5086D141FC870EFA31 /* Render.GLRenderDevice.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "Render.GLRenderDevice.cpp"; path = "../../../Render/GLRenderDevice/Src/Render.GLRenderDevice.cpp"; sourceTree = SOURCE_ROOT; };
+        26D02E9A881D4D459F9F8B87 /* ShadersGLES.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "ShadersGLES.h"; path = "../../../Render/GLRenderDevice/Src/ShadersGLES.h"; sourceTree = SOURCE_ROOT; };
+        D9D2CF12621A42358887D05F /* GLHeaders.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "GLHeaders.h"; path = "../../../Render/GLRenderDevice/Src/GLHeaders.h"; sourceTree = SOURCE_ROOT; };
+        2F119058035948AF9ADAE177 /* GLImports.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "GLImports.h"; path = "../../../Render/GLRenderDevice/Src/GLImports.h"; sourceTree = SOURCE_ROOT; };
+        28290214312F4DBBA16E0F93 /* GLRenderDevice.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "GLRenderDevice.cpp"; path = "../../../Render/GLRenderDevice/Src/GLRenderDevice.cpp"; sourceTree = SOURCE_ROOT; };
+        D7ED9C6C1E36487DA66369AD /* glext.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "glext.h"; path = "../../../Render/GLRenderDevice/Src/glext.h"; sourceTree = SOURCE_ROOT; };
+        76C3CE22FB5B4B268D776155 /* ShadersGL140.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "ShadersGL140.h"; path = "../../../Render/GLRenderDevice/Src/ShadersGL140.h"; sourceTree = SOURCE_ROOT; };
+        C143FAC6FCFD497593A5075D /* NSGL.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "NSGL.h"; path = "../../../Render/GLRenderContext/Src/NSGL.h"; sourceTree = SOURCE_ROOT; };
+        86725745E5F14A2984B5A1A0 /* Render.GLRenderContext.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "Render.GLRenderContext.cpp"; path = "../../../Render/GLRenderContext/Src/Render.GLRenderContext.cpp"; sourceTree = SOURCE_ROOT; };
+        D4F9DA026C714F4E95E50837 /* GLRenderContext.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "GLRenderContext.h"; path = "../../../Render/GLRenderContext/Src/GLRenderContext.h"; sourceTree = SOURCE_ROOT; };
+        8E6835B207C24147B805715A /* BuildSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "BuildSettings.h"; path = "../../../Render/GLRenderContext/Src/BuildSettings.h"; sourceTree = SOURCE_ROOT; };
+        5E2BFAA68BED4E4B95A6283C /* EAGL.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "EAGL.h"; path = "../../../Render/GLRenderContext/Src/EAGL.h"; sourceTree = SOURCE_ROOT; };
+        6D16F36B16254E30B1C4E2D9 /* GLHeaders.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "GLHeaders.h"; path = "../../../Render/GLRenderContext/Src/GLHeaders.h"; sourceTree = SOURCE_ROOT; };
+        8E1E7722701745BCA3C121B1 /* wglext.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "wglext.h"; path = "../../../Render/GLRenderContext/Src/wglext.h"; sourceTree = SOURCE_ROOT; };
+        97480B313D4C48C6B7144B26 /* NSGL.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "NSGL.mm"; path = "../../../Render/GLRenderContext/Src/NSGL.mm"; sourceTree = SOURCE_ROOT; };
+        03053C2A371B4B33858E15AC /* EAGL.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "EAGL.mm"; path = "../../../Render/GLRenderContext/Src/EAGL.mm"; sourceTree = SOURCE_ROOT; };
+        6B58D55E3A5048C1A5461236 /* glext.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "glext.h"; path = "../../../Render/GLRenderContext/Src/glext.h"; sourceTree = SOURCE_ROOT; };
+        402EAA6A0FEA491C9FDBED61 /* GLRenderContext.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; name = "GLRenderContext.cpp"; path = "../../../Render/GLRenderContext/Src/GLRenderContext.cpp"; sourceTree = SOURCE_ROOT; };
+        CA4300F514F64482972FDE71 /* MTLFactory.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "MTLFactory.h"; path = "../../../Render/MTLRenderDevice/Include/NsRender/MTLFactory.h"; sourceTree = SOURCE_ROOT; };
+        A3D93C8A2E854375B3F9F36F /* MTLRenderDeviceApi.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "MTLRenderDeviceApi.h"; path = "../../../Render/MTLRenderDevice/Include/NsRender/MTLRenderDeviceApi.h"; sourceTree = SOURCE_ROOT; };
+        B1420FC84999449EA0DDA6E7 /* MTLRenderDevice.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "MTLRenderDevice.h"; path = "../../../Render/MTLRenderDevice/Src/MTLRenderDevice.h"; sourceTree = SOURCE_ROOT; };
+        836E532C85DE488CB3C4EFD7 /* Shaders.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "Shaders.h"; path = "../../../Render/MTLRenderDevice/Src/Shaders.h"; sourceTree = SOURCE_ROOT; };
+        3686611DC7944DF5923F8BB9 /* Render.MTLRenderDevice.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "Render.MTLRenderDevice.mm"; path = "../../../Render/MTLRenderDevice/Src/Render.MTLRenderDevice.mm"; sourceTree = SOURCE_ROOT; };
+        5F47112B9C854237B29CC9CF /* MTLRenderDevice.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "MTLRenderDevice.mm"; path = "../../../Render/MTLRenderDevice/Src/MTLRenderDevice.mm"; sourceTree = SOURCE_ROOT; };
+        DC3E1641998548DCADD69A74 /* Render.MTLRenderContext.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "Render.MTLRenderContext.mm"; path = "../../../Render/MTLRenderContext/Src/Render.MTLRenderContext.mm"; sourceTree = SOURCE_ROOT; };
+        83C3B269DB6C4F7F9029AA95 /* MTLRenderContext.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = "MTLRenderContext.h"; path = "../../../Render/MTLRenderContext/Src/MTLRenderContext.h"; sourceTree = SOURCE_ROOT; };
+        E43A42406C0A4AB599B70711 /* MTLRenderContext.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = "MTLRenderContext.mm"; path = "../../../Render/MTLRenderContext/Src/MTLRenderContext.mm"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+        70FC8F8A279A4CFFB30E17B5 = {
+            isa = PBXGroup;
+            children = (
+                9CCB4115881D4F2195A7B1DA,
+                91C41AC6808A4630A1F05BE7,
+            );
+            name = Include;
+            sourceTree = "<group>";
+        };
+        6B951BA47FEA4A9CB9A0FDA8 = {
+            isa = PBXGroup;
+            children = (
+                A9D3E04F524F4D54B66CD799,
+                9E66FF21379047F391F18E7C,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        C9207A3988004E2F980BD68F = {
+            isa = PBXGroup;
+            children = (
+                70FC8F8A279A4CFFB30E17B5,
+                6B951BA47FEA4A9CB9A0FDA8,
+            );
+            name = Display;
+            sourceTree = "<group>";
+        };
+        E990C2B2205C449CB3188582 = {
+            isa = PBXGroup;
+            children = (
+                A0FB265EB9054E8B8C9F0795,
+                FEA28FFCBB4F40E3BEE239CA,
+                78671CE36BF44EF89759F483,
+                E8A8203DAF2C4A588680BC79,
+                C4177780567440AC8533EAD7,
+                9549E336B1C14014AF3D96B9,
+                5FAD0BAB5CF443D18CCA82FE,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        4E6916EECCB94ECEBFE3B5A5 = {
+            isa = PBXGroup;
+            children = (
+                E990C2B2205C449CB3188582,
+            );
+            name = UIKitDisplay;
+            sourceTree = "<group>";
+        };
+        130C1B74997E47FBB10B4AA5 = {
+            isa = PBXGroup;
+            children = (
+                3CFE36FC87294C8EBFB570CE,
+                38D549866C274B76B47E7569,
+                C92733543C9D4E44AA690371,
+                492116F1C63B447AA546EEE6,
+                1CDB0661357E49EEA87CE59D,
+                9DCC8730A1E141BB95AE78A0,
+                BF9A0D36A6834361AE10F19B,
+                A7FD4AA65B0245B6994674C0,
+                9745E16CDBF24FB69C7A054F,
+                A8A991CBEFB340A0891A3C7E,
+                08680581E27C4F99B48C12C1,
+            );
+            name = Include;
+            sourceTree = "<group>";
+        };
+        1475E3D686124EF5AAD2F0CF = {
+            isa = PBXGroup;
+            children = (
+                25669743609641859F6E7958,
+                662613F7E1E244AD8C0DDE55,
+                87D17FB3FE22439BA2D01CE4,
+                68210C0186594B7598010E50,
+                4F83B91FD16642B0B7068FD5,
+                D3A85B37F5E6471594380E42,
+                6D0A121F88974E6F9096CD28,
+                EDC47126C3E04D94BCE572D1,
+                97432FB600C74D91B03BA45C,
+                DE031095E407498DA3C11A46,
+                ED016E29DD4D4A288454307E,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        6EF2E7FC24764D03813CBE72 = {
+            isa = PBXGroup;
+            children = (
+                130C1B74997E47FBB10B4AA5,
+                1475E3D686124EF5AAD2F0CF,
+            );
+            name = Launcher;
+            sourceTree = "<group>";
+        };
+        2F40D10A0A2747CB880CE89C = {
+            isa = PBXGroup;
+            children = (
+                A1BAA0275E194C5B9C0113F9,
+                D51F853E3C994E2A9CF0206D,
+            );
+            name = Include;
+            sourceTree = "<group>";
+        };
+        FCB6B0DC89184771A7B395C2 = {
+            isa = PBXGroup;
+            children = (
+                95B1340D359842B596BBD88C,
+                74AEF233BCBE4E7CA5337DC1,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        F246196873FB4C79AA779B7E = {
+            isa = PBXGroup;
+            children = (
+                2F40D10A0A2747CB880CE89C,
+                FCB6B0DC89184771A7B395C2,
+            );
+            name = DisplayLauncher;
+            sourceTree = "<group>";
+        };
+        6111098D0E224AB9877BE014 = {
+            isa = PBXGroup;
+            children = (
+                F0B3828EBD7F4DC08F2CB931,
+                9D3D28608E70458E938CE0D2,
+                4D8F07D127DF4175BA7FFF90,
+                A6A9C1C6995F4F33997C5CD9,
+            );
+            name = Include;
+            sourceTree = "<group>";
+        };
+        10C31725AFED4FBD941D68AD = {
+            isa = PBXGroup;
+            children = (
+                6D565E9DA05E4BC08D90D831,
+                6384864C4CCD4752BE2495F8,
+                D819BFED503D49FBB6E69144,
+                7B47965910874C859C519684,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        953705A687674F75945BACF1 = {
+            isa = PBXGroup;
+            children = (
+                4C97F108EF2D46628F0F69DF,
+                6926AE82560044AB868E834F,
+            );
+            name = Data;
+            sourceTree = "<group>";
+        };
+        2A19F7D5C37E4CED9F43D522 = {
+            isa = PBXGroup;
+            children = (
+                6111098D0E224AB9877BE014,
+                10C31725AFED4FBD941D68AD,
+                953705A687674F75945BACF1,
+            );
+            name = ApplicationLauncher;
+            sourceTree = "<group>";
+        };
+        DE7A3563822E4D3699928B2F = {
+            isa = PBXGroup;
+            children = (
+                C9207A3988004E2F980BD68F,
+                4E6916EECCB94ECEBFE3B5A5,
+                6EF2E7FC24764D03813CBE72,
+                F246196873FB4C79AA779B7E,
+                2A19F7D5C37E4CED9F43D522,
+            );
+            name = App;
+            sourceTree = "<group>";
+        };
+        D7B6634ABB4A4C9E83715D47 = {
+            isa = PBXGroup;
+            children = (
+                C49F616C707C4465BCA33BDB,
+                5C3141F98C804285A3DCC995,
+                19A97323B65246F7B558603D,
+            );
+            name = Include;
+            sourceTree = "<group>";
+        };
+        79D6462FD5824D8184AC7B2B = {
+            isa = PBXGroup;
+            children = (
+                1F21ADEA12DB42439A3FB955,
+                2575FF86060244EAB4DC6732,
+                AAD59C57B11044C197667CA0,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        848C39BB51584991B590D901 = {
+            isa = PBXGroup;
+            children = (
+                D7B6634ABB4A4C9E83715D47,
+                79D6462FD5824D8184AC7B2B,
+            );
+            name = RenderContext;
+            sourceTree = "<group>";
+        };
+        99AA92E6F51D4BC695D560EB = {
+            isa = PBXGroup;
+            children = (
+                640785916385404199556CD5,
+                50E2507E16704F3499268C17,
+            );
+            name = Include;
+            sourceTree = "<group>";
+        };
+        AED0B7EA516E492DBCC423B3 = {
+            isa = PBXGroup;
+            children = (
+                F5AF809779224083828D8102,
+                DC68530E388B4506971F9201,
+                76589E5086D141FC870EFA31,
+                26D02E9A881D4D459F9F8B87,
+                D9D2CF12621A42358887D05F,
+                2F119058035948AF9ADAE177,
+                28290214312F4DBBA16E0F93,
+                D7ED9C6C1E36487DA66369AD,
+                76C3CE22FB5B4B268D776155,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        4289751C528E4F60B2228571 = {
+            isa = PBXGroup;
+            children = (
+                99AA92E6F51D4BC695D560EB,
+                AED0B7EA516E492DBCC423B3,
+            );
+            name = GLRenderDevice;
+            sourceTree = "<group>";
+        };
+        6A895D1D796E4ED2AC56DF33 = {
+            isa = PBXGroup;
+            children = (
+                C143FAC6FCFD497593A5075D,
+                86725745E5F14A2984B5A1A0,
+                D4F9DA026C714F4E95E50837,
+                8E6835B207C24147B805715A,
+                5E2BFAA68BED4E4B95A6283C,
+                6D16F36B16254E30B1C4E2D9,
+                8E1E7722701745BCA3C121B1,
+                97480B313D4C48C6B7144B26,
+                03053C2A371B4B33858E15AC,
+                6B58D55E3A5048C1A5461236,
+                402EAA6A0FEA491C9FDBED61,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        5EB9DEB3725944C99A9839DA = {
+            isa = PBXGroup;
+            children = (
+                6A895D1D796E4ED2AC56DF33,
+            );
+            name = GLRenderContext;
+            sourceTree = "<group>";
+        };
+        AFB8D4058B084138925BEEBB = {
+            isa = PBXGroup;
+            children = (
+                CA4300F514F64482972FDE71,
+                A3D93C8A2E854375B3F9F36F,
+            );
+            name = Include;
+            sourceTree = "<group>";
+        };
+        DE1C84F5DF8F4156A2B6F557 = {
+            isa = PBXGroup;
+            children = (
+                B1420FC84999449EA0DDA6E7,
+                836E532C85DE488CB3C4EFD7,
+                3686611DC7944DF5923F8BB9,
+                5F47112B9C854237B29CC9CF,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        F7872C228CCD42659D2D61A4 = {
+            isa = PBXGroup;
+            children = (
+                AFB8D4058B084138925BEEBB,
+                DE1C84F5DF8F4156A2B6F557,
+            );
+            name = MTLRenderDevice;
+            sourceTree = "<group>";
+        };
+        42065A25AC304055A7BB65D9 = {
+            isa = PBXGroup;
+            children = (
+                DC3E1641998548DCADD69A74,
+                83C3B269DB6C4F7F9029AA95,
+                E43A42406C0A4AB599B70711,
+            );
+            name = Src;
+            sourceTree = "<group>";
+        };
+        7CF7193A4EFE420699281570 = {
+            isa = PBXGroup;
+            children = (
+                42065A25AC304055A7BB65D9,
+            );
+            name = MTLRenderContext;
+            sourceTree = "<group>";
+        };
+        BCDCBEA56A794C6C96D8125D = {
+            isa = PBXGroup;
+            children = (
+                848C39BB51584991B590D901,
+                4289751C528E4F60B2228571,
+                5EB9DEB3725944C99A9839DA,
+                F7872C228CCD42659D2D61A4,
+                7CF7193A4EFE420699281570,
+            );
+            name = Render;
+            sourceTree = "<group>";
+        };
+        F82455C5331B4FB9ABE6FD8B = {
+            isa = PBXGroup;
+            children = (
+                C60DD02436F248B0895D7107,
+                97FAFDFBE7D94934A0386422,
+                295877DF8D1B4A48A81EDBF8,
+                281E238186504AB3A7FD7EAF,
+            );
+            name = Config;
+            sourceTree = "<group>";
+        };
+        A2BE7B61A7B842FE8EAB6A57 = {
+            isa = PBXGroup;
+            children = (
+                4A4ADFCF597244AA9D2633E9,
+            );
+            name = Products;
+            sourceTree = "<group>";
+        };
+        81E44186192C43889056EF2D = {
+            isa = PBXGroup;
+            children = (
+            );
+            name = Dependencies;
+            sourceTree = "<group>";
+        };
+        5A89347EA6214DC09E82FD3B = {
+            isa = PBXGroup;
+            children = (
+                DE7A3563822E4D3699928B2F,
+                BCDCBEA56A794C6C96D8125D,
+                F82455C5331B4FB9ABE6FD8B,
+                A2BE7B61A7B842FE8EAB6A57,
+                81E44186192C43889056EF2D,
+                8D4FDD21002640B69F9D6A8A,
+            );
+            sourceTree = "<group>";
+        };
+/* End PBXGroup section */
+
+/* Begin PBXSourcesBuildPhase section */
+        58BC91078A544DA7A6CCB68D = {
+            isa = PBXSourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                8B4B7515674B46639C2A962B,
+                B4C1464C3A96449CA41C0851,
+                1A7FE471DD5E411394A8FDAF,
+                5B261F22D5144020BD99531C,
+                C35D2D04025F410CA1AC3AA9,
+                092A9D84C3A34574A8134B81,
+                225A9C60332E4B658D3C92FB,
+                61E9DABDD14043199158E4ED,
+                8ECFDF31848B4FCCAFF3C5B6,
+                36F79EDEB64240F780953E3C,
+                409BB19F48A34883974BF641,
+                B017079100834A85B992959D,
+                0FB41AE9A31449A3997A62C5,
+                36035D00CB234117B75D3C49,
+                09EFD9B07FC84A5D870E7C53,
+                4698847C01484219BEE5CAF3,
+                017E6BDA6241433EA5685E42,
+                D3BFBAC56B264D36BF0EE4A2,
+                692E0C9C51D84E78B93F5006,
+                060C9179AC2D483588565EFC,
+                9B6A47DF89EC42FA97C18FD5,
+                65BF684742C74838A6B3C838,
+                84304743E55A44B0812A50F1,
+                6FA947E556E5481FA153151F,
+                BF09C4C282EE44EEB616E009,
+                523145673E654042A787D805,
+                AB69C7B6ED93470E9063FF00,
+                47A521E7E61C4D23BA53B4D5,
+                1A23DBAB125E45878563F95D,
+                A891EDB3250940979B150100,
+                E962F8ADE565483183BD16F4,
+                F7CCE4EBA89C47F8A789DE8B,
+                2358C65D3337495F81C2BBA5,
+                A6ED45F8A3D446948597AA54,
+                2BD37E29B6C746F9BE4F90AA,
+                EEE4A85F974745A2B40750B8,
+                9FF149E931CE4F26B6736933,
+                CD9AC1A4072B44DBB4E59374,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXBuildRule section */
+        5711ED8044954932AD7BCC6F = {
+            isa = PBXBuildRule;
+            compilerSpec = com.apple.compilers.proxy.script;
+            filePatterns = "*.xaml *.ttf";
+            fileType = pattern.proxy;
+            isEditable = 0;
+            outputFiles = (
+                "${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}.bin.h"
+            );
+            script = "../../../../Tools/Bin2h/bin2h.py \"${INPUT_FILE_PATH}\" > \"${DERIVED_SOURCES_DIR}/${INPUT_FILE_NAME}.bin.h\"";
+        };
+/* End PBXBuildRule section */
+
+/* Begin PBXFrameworksBuildPhase section */
+        F50E6E3478934FEEB1460266 = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+        642FAB8CE1D64CC8A7C467A1 = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+        622543EEAEB64639B2154D3E = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = 05471B687EBA494E9F05B9A9;
+            buildPhases = (
+                58BC91078A544DA7A6CCB68D,
+                F50E6E3478934FEEB1460266,
+                642FAB8CE1D64CC8A7C467A1,
+            );
+            buildRules = (
+                5711ED8044954932AD7BCC6F,
+            );
+            dependencies = ();
+            name = NoesisApp;
+            productName = NoesisApp;
+            productReference = 4A4ADFCF597244AA9D2633E9;
+            productType = "com.apple.product-type.library.static";
+        };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+        1893AF264E084F6696968045 = {
+            isa = PBXProject;
+            attributes = {};
+            buildConfigurationList = E7AA9A4EA0394751BC1DD383;
+            compatibilityVersion = "Xcode 3.2";
+            developmentRegion = English;
+            hasScannedForEncodings = 0;
+            knownRegions = (en,);
+            mainGroup = 5A89347EA6214DC09E82FD3B;
+            productRefGroup = A2BE7B61A7B842FE8EAB6A57;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (622543EEAEB64639B2154D3E,);
+        };
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+        89B97693F034481A816720BE = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = C60DD02436F248B0895D7107;
+            buildSettings = {
+                SDKROOT = iphoneos;
+                ARCHS = "$(ARCHS_STANDARD)";
+                HEADER_SEARCH_PATHS = (../../../App/DisplayLauncher/Include,../../../../../3rdParty/EASTL/local/include,../../../Gui/DependencySystem/Include,../../../Math/Utils/Include,../../../Math/VectorMath/Include,../../../Render/MTLRenderContext/Include,../../../Core/Nullable/Include,../../../Gui/CachedFontProvider/Include,../../../Core/TypeConverter/Include,../../../Render/GLRenderContext/Include,../../../Gui/Providers/Include,../../../App/ApplicationLauncher/Include,../../../App/UIKitDisplay/Include,../../../Render/GLRenderDevice/Include,../../../App/Launcher/Include,../../../Gui/Animation/Include,../../../Core/Kernel/Include,../../../App/Display/Include,../../../Render/RenderContext/Include,../../../Core/NSTL/Include,../../../Render/MTLRenderDevice/Include,../../../../../Include,../../../Gui/Core/Include,../../../Drawing/Types/Include,../../../Render/RenderDevice/Include);
+                GCC_PREPROCESSOR_DEFINITIONS = ("NS_BUILD","NS_CONFIG=Release","NS_VERSION=2.1.0f1","NS_APP_FRAMEWORK","NS_STATIC_LIBRARY","NS_RELEASE_CFG","NS_ASSERTS_ENABLED=0","NS_INSTRUMENTED_ENABLED=0","NS_MINIMUM_LOG_LEVEL=2","NS_RENDER_RENDERCONTEXT_EXPORTS","NS_RENDER_GLRENDERDEVICE_EXPORTS","NS_APP_DISPLAY_EXPORTS","NS_RENDER_GLRENDERCONTEXT_PRIVATE","NS_RENDER_MTLRENDERDEVICE_EXPORTS","NS_APP_UIKITDISPLAY_PRIVATE","NS_APP_LAUNCHER_EXPORTS","NS_APP_DISPLAYLAUNCHER_EXPORTS","NS_APP_APPLICATIONLAUNCHER_EXPORTS","HAVE_GLES2_GL2_H","$(inherited)");
+                
+                
+                GCC_PRECOMPILE_PREFIX_HEADER = YES;
+                GCC_PREFIX_HEADER = pch.h;
+                GENERATE_MASTER_OBJECT_FILE = YES;
+                STRIP_STYLE = "non-global";
+                CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/../../../../../Lib/ios";
+                CONFIGURATION_TEMP_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+                USE_HEADERMAP = NO;
+            };
+            name = Release;
+        };
+        BD9BC6CE17FC4D699CBBECE5 = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                PRODUCT_BUNDLE_IDENTIFIER = "Noesis.${PRODUCT_NAME:rfc1034identifier}";
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                CURRENT_PROJECT_VERSION = 2.1.0;
+                DYLIB_COMPATIBILITY_VERSION = "$(CURRENT_PROJECT_VERSION)";
+                DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+            };
+            name = Release;
+        };
+        A7205F5E9E09442A9E806350 = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = 97FAFDFBE7D94934A0386422;
+            buildSettings = {
+                SDKROOT = iphoneos;
+                ARCHS = "$(ARCHS_STANDARD)";
+                HEADER_SEARCH_PATHS = (../../../App/DisplayLauncher/Include,../../../../../3rdParty/EASTL/local/include,../../../Gui/DependencySystem/Include,../../../Math/Utils/Include,../../../Math/VectorMath/Include,../../../Render/MTLRenderContext/Include,../../../Core/Nullable/Include,../../../Gui/CachedFontProvider/Include,../../../Core/TypeConverter/Include,../../../Render/GLRenderContext/Include,../../../Gui/Providers/Include,../../../App/ApplicationLauncher/Include,../../../App/UIKitDisplay/Include,../../../Render/GLRenderDevice/Include,../../../App/Launcher/Include,../../../Gui/Animation/Include,../../../Core/Kernel/Include,../../../App/Display/Include,../../../Render/RenderContext/Include,../../../Core/NSTL/Include,../../../Render/MTLRenderDevice/Include,../../../../../Include,../../../Gui/Core/Include,../../../Drawing/Types/Include,../../../Render/RenderDevice/Include);
+                GCC_PREPROCESSOR_DEFINITIONS = ("NS_BUILD","NS_CONFIG=Profile","NS_VERSION=2.1.0f1","NS_APP_FRAMEWORK","NS_STATIC_LIBRARY","NS_PROFILE_CFG","NS_ASSERTS_ENABLED=0","NS_INSTRUMENTED_ENABLED=1","NS_MINIMUM_LOG_LEVEL=2","NS_RENDER_RENDERCONTEXT_EXPORTS","NS_RENDER_GLRENDERDEVICE_EXPORTS","NS_APP_DISPLAY_EXPORTS","NS_RENDER_GLRENDERCONTEXT_PRIVATE","NS_RENDER_MTLRENDERDEVICE_EXPORTS","NS_APP_UIKITDISPLAY_PRIVATE","NS_APP_LAUNCHER_EXPORTS","NS_APP_DISPLAYLAUNCHER_EXPORTS","NS_APP_APPLICATIONLAUNCHER_EXPORTS","HAVE_GLES2_GL2_H","$(inherited)");
+                
+                
+                GCC_PRECOMPILE_PREFIX_HEADER = YES;
+                GCC_PREFIX_HEADER = pch.h;
+                GENERATE_MASTER_OBJECT_FILE = YES;
+                STRIP_STYLE = "non-global";
+                CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/../../../../../Lib/ios";
+                CONFIGURATION_TEMP_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+                USE_HEADERMAP = NO;
+            };
+            name = Profile;
+        };
+        009BDB1B56514E62AF64ED09 = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                PRODUCT_BUNDLE_IDENTIFIER = "Noesis.${PRODUCT_NAME:rfc1034identifier}";
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                CURRENT_PROJECT_VERSION = 2.1.0;
+                DYLIB_COMPATIBILITY_VERSION = "$(CURRENT_PROJECT_VERSION)";
+                DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+            };
+            name = Profile;
+        };
+        E1B8E68EEC254B759B4697BA = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = 281E238186504AB3A7FD7EAF;
+            buildSettings = {
+                SDKROOT = iphoneos;
+                ARCHS = "$(ARCHS_STANDARD)";
+                HEADER_SEARCH_PATHS = (../../../App/DisplayLauncher/Include,../../../../../3rdParty/EASTL/local/include,../../../Gui/DependencySystem/Include,../../../Math/Utils/Include,../../../Math/VectorMath/Include,../../../Render/MTLRenderContext/Include,../../../Core/Nullable/Include,../../../Gui/CachedFontProvider/Include,../../../Core/TypeConverter/Include,../../../Render/GLRenderContext/Include,../../../Gui/Providers/Include,../../../App/ApplicationLauncher/Include,../../../App/UIKitDisplay/Include,../../../Render/GLRenderDevice/Include,../../../App/Launcher/Include,../../../Gui/Animation/Include,../../../Core/Kernel/Include,../../../App/Display/Include,../../../Render/RenderContext/Include,../../../Core/NSTL/Include,../../../Render/MTLRenderDevice/Include,../../../../../Include,../../../Gui/Core/Include,../../../Drawing/Types/Include,../../../Render/RenderDevice/Include);
+                GCC_PREPROCESSOR_DEFINITIONS = ("NS_BUILD","NS_CONFIG=Debug","NS_VERSION=2.1.0f1","NS_APP_FRAMEWORK","NS_STATIC_LIBRARY","NS_DEBUG_CFG","NS_ASSERTS_ENABLED=1","NS_INSTRUMENTED_ENABLED=1","NS_MINIMUM_LOG_LEVEL=1","NS_RENDER_RENDERCONTEXT_EXPORTS","NS_RENDER_GLRENDERDEVICE_EXPORTS","NS_APP_DISPLAY_EXPORTS","NS_RENDER_GLRENDERCONTEXT_PRIVATE","NS_RENDER_MTLRENDERDEVICE_EXPORTS","NS_APP_UIKITDISPLAY_PRIVATE","NS_APP_LAUNCHER_EXPORTS","NS_APP_DISPLAYLAUNCHER_EXPORTS","NS_APP_APPLICATIONLAUNCHER_EXPORTS","HAVE_GLES2_GL2_H","$(inherited)");
+                
+                
+                GCC_PRECOMPILE_PREFIX_HEADER = YES;
+                GCC_PREFIX_HEADER = pch.h;
+                GENERATE_MASTER_OBJECT_FILE = YES;
+                STRIP_STYLE = "non-global";
+                CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/../../../../../Lib/ios";
+                CONFIGURATION_TEMP_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+                USE_HEADERMAP = NO;
+            };
+            name = Debug;
+        };
+        470B2BA076DA491A85103C41 = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                PRODUCT_BUNDLE_IDENTIFIER = "Noesis.${PRODUCT_NAME:rfc1034identifier}";
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                CURRENT_PROJECT_VERSION = 2.1.0;
+                DYLIB_COMPATIBILITY_VERSION = "$(CURRENT_PROJECT_VERSION)";
+                DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+            };
+            name = Debug;
+        };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+        E7AA9A4EA0394751BC1DD383 = {
+            isa = XCConfigurationList;
+            buildConfigurations = (89B97693F034481A816720BE,A7205F5E9E09442A9E806350,E1B8E68EEC254B759B4697BA);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+
+        05471B687EBA494E9F05B9A9 = {
+            isa = XCConfigurationList;
+            buildConfigurations = (BD9BC6CE17FC4D699CBBECE5,009BDB1B56514E62AF64ED09,470B2BA076DA491A85103C41);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+/* End XCConfigurationList section */
+    };
+    rootObject = 1893AF264E084F6696968045;
+}

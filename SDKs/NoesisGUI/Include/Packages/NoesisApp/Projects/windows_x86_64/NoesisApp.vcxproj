@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Profile|x64">
+      <Configuration>Profile</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{553A71D4-BF82-33DD-860C-68A8CA5AEC4F}</ProjectGuid>
+    <DefaultLanguage>en-US</DefaultLanguage>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="..\..\..\..\..\Config\Common.props" />
+    <Import Project="..\..\..\..\..\Config\Debug\Debug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'" Label="PropertySheets">
+    <Import Project="..\..\..\..\..\Config\Common.props" />
+    <Import Project="..\..\..\..\..\Config\Profile\Profile.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="..\..\..\..\..\Config\Common.props" />
+    <Import Project="..\..\..\..\..\Config\Release\Release.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\..\..\..\..\Bin\windows_x86_64\</OutDir>
+    <TargetName>NoesisApp</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
+    <OutDir>..\..\..\..\..\Bin\windows_x86_64\</OutDir>
+    <TargetName>NoesisApp</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\..\..\..\..\Bin\windows_x86_64\</OutDir>
+    <TargetName>NoesisApp</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\App\DisplayLauncher\Include;..\..\..\Core\Nullable\Include;..\..\..\Render\GLRenderContext\Include;..\..\..\Render\RenderDevice\Include;..\..\..\Render\GLRenderDevice\Include;..\..\..\App\Launcher\Include;..\..\..\Core\Kernel\Include;..\..\..\Math\VectorMath\Include;..\..\..\Gui\Core\Include;..\..\..\..\..\3rdParty\EASTL\local\include;..\..\..\Gui\DependencySystem\Include;..\..\..\Render\D3D11RenderDevice\Include;..\..\..\App\Display\Include;..\..\..\Render\RenderContext\Include;..\..\..\Gui\CachedFontProvider\Include;..\..\..\Core\TypeConverter\Include;..\..\..\App\Win32Display\Include;..\..\..\..\..\Include;..\..\..\Math\Utils\Include;..\..\..\Gui\Animation\Include;..\..\..\Gui\Providers\Include;..\..\..\Render\D3D11RenderContext\Include;..\..\..\Drawing\Types\Include;..\..\..\Core\NSTL\Include;..\..\..\App\ApplicationLauncher\Include;$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NS_BUILD;NS_CONFIG=Debug;NS_VERSION=2.1.0f1;NS_APP_FRAMEWORK;NS_DEBUG_CFG;NS_ASSERTS_ENABLED=1;NS_INSTRUMENTED_ENABLED=1;NS_MINIMUM_LOG_LEVEL=1;NS_RENDER_RENDERCONTEXT_EXPORTS;NS_RENDER_GLRENDERDEVICE_EXPORTS;NS_APP_DISPLAY_EXPORTS;NS_RENDER_GLRENDERCONTEXT_PRIVATE;NS_RENDER_D3D11RENDERDEVICE_EXPORTS;NS_RENDER_D3D11RENDERCONTEXT_PRIVATE;NS_APP_WIN32DISPLAY_PRIVATE;NS_APP_LAUNCHER_EXPORTS;NS_APP_DISPLAYLAUNCHER_EXPORTS;NS_APP_APPLICATIONLAUNCHER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Noesis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\..\..\Lib\windows_x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\..\..\..\..\Lib\windows_x86_64\NoesisApp.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\App\DisplayLauncher\Include;..\..\..\Core\Nullable\Include;..\..\..\Render\GLRenderContext\Include;..\..\..\Render\RenderDevice\Include;..\..\..\Render\GLRenderDevice\Include;..\..\..\App\Launcher\Include;..\..\..\Core\Kernel\Include;..\..\..\Math\VectorMath\Include;..\..\..\Gui\Core\Include;..\..\..\..\..\3rdParty\EASTL\local\include;..\..\..\Gui\DependencySystem\Include;..\..\..\Render\D3D11RenderDevice\Include;..\..\..\App\Display\Include;..\..\..\Render\RenderContext\Include;..\..\..\Gui\CachedFontProvider\Include;..\..\..\Core\TypeConverter\Include;..\..\..\App\Win32Display\Include;..\..\..\..\..\Include;..\..\..\Math\Utils\Include;..\..\..\Gui\Animation\Include;..\..\..\Gui\Providers\Include;..\..\..\Render\D3D11RenderContext\Include;..\..\..\Drawing\Types\Include;..\..\..\Core\NSTL\Include;..\..\..\App\ApplicationLauncher\Include;$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NS_BUILD;NS_CONFIG=Profile;NS_VERSION=2.1.0f1;NS_APP_FRAMEWORK;NS_PROFILE_CFG;NS_ASSERTS_ENABLED=0;NS_INSTRUMENTED_ENABLED=1;NS_MINIMUM_LOG_LEVEL=2;NS_RENDER_RENDERCONTEXT_EXPORTS;NS_RENDER_GLRENDERDEVICE_EXPORTS;NS_APP_DISPLAY_EXPORTS;NS_RENDER_GLRENDERCONTEXT_PRIVATE;NS_RENDER_D3D11RENDERDEVICE_EXPORTS;NS_RENDER_D3D11RENDERCONTEXT_PRIVATE;NS_APP_WIN32DISPLAY_PRIVATE;NS_APP_LAUNCHER_EXPORTS;NS_APP_DISPLAYLAUNCHER_EXPORTS;NS_APP_APPLICATIONLAUNCHER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Noesis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\..\..\Lib\windows_x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\..\..\..\..\Lib\windows_x86_64\NoesisApp.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\App\DisplayLauncher\Include;..\..\..\Core\Nullable\Include;..\..\..\Render\GLRenderContext\Include;..\..\..\Render\RenderDevice\Include;..\..\..\Render\GLRenderDevice\Include;..\..\..\App\Launcher\Include;..\..\..\Core\Kernel\Include;..\..\..\Math\VectorMath\Include;..\..\..\Gui\Core\Include;..\..\..\..\..\3rdParty\EASTL\local\include;..\..\..\Gui\DependencySystem\Include;..\..\..\Render\D3D11RenderDevice\Include;..\..\..\App\Display\Include;..\..\..\Render\RenderContext\Include;..\..\..\Gui\CachedFontProvider\Include;..\..\..\Core\TypeConverter\Include;..\..\..\App\Win32Display\Include;..\..\..\..\..\Include;..\..\..\Math\Utils\Include;..\..\..\Gui\Animation\Include;..\..\..\Gui\Providers\Include;..\..\..\Render\D3D11RenderContext\Include;..\..\..\Drawing\Types\Include;..\..\..\Core\NSTL\Include;..\..\..\App\ApplicationLauncher\Include;$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NS_BUILD;NS_CONFIG=Release;NS_VERSION=2.1.0f1;NS_APP_FRAMEWORK;NS_RELEASE_CFG;NS_ASSERTS_ENABLED=0;NS_INSTRUMENTED_ENABLED=0;NS_MINIMUM_LOG_LEVEL=2;NS_RENDER_RENDERCONTEXT_EXPORTS;NS_RENDER_GLRENDERDEVICE_EXPORTS;NS_APP_DISPLAY_EXPORTS;NS_RENDER_GLRENDERCONTEXT_PRIVATE;NS_RENDER_D3D11RENDERDEVICE_EXPORTS;NS_RENDER_D3D11RENDERCONTEXT_PRIVATE;NS_APP_WIN32DISPLAY_PRIVATE;NS_APP_LAUNCHER_EXPORTS;NS_APP_DISPLAYLAUNCHER_EXPORTS;NS_APP_APPLICATIONLAUNCHER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Noesis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\..\..\Lib\windows_x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>..\..\..\..\..\Lib\windows_x86_64\NoesisApp.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\App\Display\Include\NsApp\Display.h" />
+    <ClInclude Include="..\..\..\App\Display\Include\NsApp\DisplayApi.h" />
+    <ClCompile Include="..\..\..\App\Display\Src\App.Display.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Display\Src\Display.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Win32Display\Src\App.Win32Display.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Win32Display\Src\TSF.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\App\Win32Display\Src\TSF.h" />
+    <ClCompile Include="..\..\..\App\Win32Display\Src\Win32Display.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\App\Win32Display\Src\Win32Display.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\CommandLine.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\EmbeddedFontProvider.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\EmbeddedTextureProvider.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\EmbeddedXamlProvider.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\EntryPoint.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\FileTextureProvider.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\Launcher.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\LauncherApi.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\LocalFontProvider.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\LocalTextureProvider.h" />
+    <ClInclude Include="..\..\..\App\Launcher\Include\NsApp\LocalXamlProvider.h" />
+    <ClCompile Include="..\..\..\App\Launcher\Src\App.Launcher.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Launcher\Src\CommandLine.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Launcher\Src\EmbeddedFontProvider.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Launcher\Src\EmbeddedTextureProvider.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Launcher\Src\EmbeddedXamlProvider.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Launcher\Src\FileTextureProvider.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Launcher\Src\Launcher.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Launcher\Src\LocalFontProvider.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Launcher\Src\LocalTextureProvider.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\Launcher\Src\LocalXamlProvider.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\App\Launcher\Src\stb_image.h" />
+    <ClInclude Include="..\..\..\App\DisplayLauncher\Include\NsApp\DisplayLauncher.h" />
+    <ClInclude Include="..\..\..\App\DisplayLauncher\Include\NsApp\DisplayLauncherApi.h" />
+    <ClCompile Include="..\..\..\App\DisplayLauncher\Src\App.DisplayLauncher.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\DisplayLauncher\Src\DisplayLauncher.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\App\ApplicationLauncher\Include\NsApp\Application.h" />
+    <ClInclude Include="..\..\..\App\ApplicationLauncher\Include\NsApp\ApplicationLauncher.h" />
+    <ClInclude Include="..\..\..\App\ApplicationLauncher\Include\NsApp\ApplicationLauncherApi.h" />
+    <ClInclude Include="..\..\..\App\ApplicationLauncher\Include\NsApp\Window.h" />
+    <ClCompile Include="..\..\..\App\ApplicationLauncher\Src\App.ApplicationLauncher.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\ApplicationLauncher\Src\Application.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\ApplicationLauncher\Src\ApplicationLauncher.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\App\ApplicationLauncher\Src\Window.cpp">
+    </ClCompile>
+    <ClInclude Include="pch.h" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="init.cpp">
+    </ClCompile>
+    <CustomBuild Include="..\..\..\App\ApplicationLauncher\Src\StatsOverlay.xaml">
+      <FileType>Document</FileType>
+      <Command>..\..\..\..\Tools\Bin2h\bin2h.exe "%(FullPath)" &gt; "$(IntermediateOutputPath)%(Filename)%(Extension).bin.h"</Command>
+      <Message>%(Filename)%(Extension)</Message>
+      <Outputs>$(IntermediateOutputPath)%(Filename)%(Extension).bin.h</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\App\ApplicationLauncher\Src\dripicons-v2.ttf">
+      <FileType>Document</FileType>
+      <Command>..\..\..\..\Tools\Bin2h\bin2h.exe "%(FullPath)" &gt; "$(IntermediateOutputPath)%(Filename)%(Extension).bin.h"</Command>
+      <Message>%(Filename)%(Extension)</Message>
+      <Outputs>$(IntermediateOutputPath)%(Filename)%(Extension).bin.h</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\Render\RenderContext\Include\NsRender\Image.h" />
+    <ClInclude Include="..\..\..\Render\RenderContext\Include\NsRender\RenderContext.h" />
+    <ClInclude Include="..\..\..\Render\RenderContext\Include\NsRender\RenderContextApi.h" />
+    <ClCompile Include="..\..\..\Render\RenderContext\Src\Image.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\RenderContext\Src\Render.RenderContext.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\..\Render\RenderContext\Src\RenderContext.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\Render\GLRenderDevice\Include\NsRender\GLFactory.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderDevice\Include\NsRender\GLRenderDeviceApi.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderDevice\Src\glext.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderDevice\Src\GLHeaders.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderDevice\Src\GLImports.h" />
+    <ClCompile Include="..\..\..\Render\GLRenderDevice\Src\GLRenderDevice.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\Render\GLRenderDevice\Src\GLRenderDevice.h" />
+    <ClCompile Include="..\..\..\Render\GLRenderDevice\Src\Render.GLRenderDevice.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\Render\GLRenderDevice\Src\ShadersGL120.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderDevice\Src\ShadersGL140.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderDevice\Src\ShadersGLES.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderContext\Src\BuildSettings.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderContext\Src\EAGL.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderContext\Src\glext.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderContext\Src\GLHeaders.h" />
+    <ClCompile Include="..\..\..\Render\GLRenderContext\Src\GLRenderContext.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\Render\GLRenderContext\Src\GLRenderContext.h" />
+    <ClInclude Include="..\..\..\Render\GLRenderContext\Src\NSGL.h" />
+    <ClCompile Include="..\..\..\Render\GLRenderContext\Src\Render.GLRenderContext.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\Render\GLRenderContext\Src\wglext.h" />
+    <ClInclude Include="..\..\..\Render\D3D11RenderDevice\Include\NsRender\D3D11Factory.h" />
+    <ClInclude Include="..\..\..\Render\D3D11RenderDevice\Include\NsRender\D3D11RenderDeviceApi.h" />
+    <ClCompile Include="..\..\..\Render\D3D11RenderDevice\Src\D3D11RenderDevice.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\Render\D3D11RenderDevice\Src\D3D11RenderDevice.h" />
+    <ClCompile Include="..\..\..\Render\D3D11RenderDevice\Src\Render.D3D11RenderDevice.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\Render\D3D11RenderDevice\Src\Shaders.h" />
+    <ClCompile Include="..\..\..\Render\D3D11RenderContext\Src\CoreWindow.cx.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\Render\D3D11RenderContext\Src\CoreWindow.h" />
+    <ClCompile Include="..\..\..\Render\D3D11RenderContext\Src\D3D11RenderContext.cpp">
+    </ClCompile>
+    <ClInclude Include="..\..\..\Render\D3D11RenderContext\Src\D3D11RenderContext.h" />
+    <ClCompile Include="..\..\..\Render\D3D11RenderContext\Src\Render.D3D11RenderContext.cpp">
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,67 @@
+#!/bin/sh
+
+metal="xcrun -sdk iphoneos metal"
+metal_ar="xcrun -sdk iphoneos metal-ar"
+metallib="xcrun -sdk iphoneos metallib"
+
+#debug_options="-gline-tables-only"
+
+build()
+{
+    $metal -std=ios-metal1.0 -arch air64 -emit-llvm -c -ffast-math -miphoneos-version-min=8.0 $debug_options $1
+}
+
+build_vertex()
+{
+    build "-o $1.air $2 ShaderVS.metal"
+    $metal_ar r Noesis.metal-ar $1.air
+    rm $1.air
+}
+
+build_fragment()
+{
+    build "-o $1.air $2 ShaderFS.metal"
+    $metal_ar r Noesis.metal-ar $1.air
+    rm $1.air
+}
+
+# Vertex shaders
+build_vertex Pos_VS "-DHAS_POSITION"
+build_vertex PosColor_VS "-DHAS_POSITION -DHAS_COLOR"
+build_vertex PosTex0_VS "-DHAS_POSITION -DHAS_UV0"
+build_vertex PosColorCoverage_VS "-DHAS_POSITION -DHAS_COLOR -DHAS_COVERAGE"
+build_vertex PosTex0Coverage_VS "-DHAS_POSITION -DHAS_UV0 -DHAS_COVERAGE"
+build_vertex PosColorTex1_VS "-DHAS_POSITION -DHAS_COLOR -DHAS_UV1"
+build_vertex PosTex0Tex1_VS "-DHAS_POSITION -DHAS_UV0 -DHAS_UV1"
+
+# Fragment shaders
+build_fragment RGBA_FS "-DEFFECT_RGBA"
+build_fragment PathSolid_FS "-DEFFECT_PATH_SOLID"
+build_fragment PathLinear_FS "-DEFFECT_PATH_LINEAR"
+build_fragment PathRadial_FS "-DEFFECT_PATH_RADIAL"
+build_fragment PathPattern_FS "-DEFFECT_PATH_PATTERN"
+build_fragment PathAASolid_FS "-DEFFECT_PATH_AA_SOLID"
+build_fragment PathAALinear_FS "-DEFFECT_PATH_AA_LINEAR"
+build_fragment PathAARadial_FS "-DEFFECT_PATH_AA_RADIAL"
+build_fragment PathAAPattern_FS "-DEFFECT_PATH_AA_PATTERN"
+build_fragment ImagePaintOpacitySolid_FS "-DEFFECT_IMAGE_PAINT_OPACITY_SOLID"
+build_fragment ImagePaintOpacityLinear_FS "-DEFFECT_IMAGE_PAINT_OPACITY_LINEAR"
+build_fragment ImagePaintOpacityRadial_FS "-DEFFECT_IMAGE_PAINT_OPACITY_RADIAL"
+build_fragment ImagePaintOpacityPattern_FS "-DEFFECT_IMAGE_PAINT_OPACITY_PATTERN"
+build_fragment TextSolid_FS "-DEFFECT_TEXT_SOLID"
+build_fragment TextLinear_FS "-DEFFECT_TEXT_LINEAR"
+build_fragment TextRadial_FS "-DEFFECT_TEXT_RADIAL"
+build_fragment TextPattern_FS "-DEFFECT_TEXT_PATTERN"
+
+# Clear shader
+build "-o Clear.air Clear.metal"
+$metal_ar r Noesis.metal-ar Clear.air
+rm Clear.air
+
+# Lib generation
+$metallib -o Noesis.metallib Noesis.metal-ar
+rm Noesis.metal-ar
+
+# Header generation
+./bin2h.py Noesis.metallib Shaders > Shaders.h
+rm Noesis.metallib
