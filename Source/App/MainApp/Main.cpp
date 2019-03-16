@@ -5,6 +5,8 @@
 #include<windows.h>
 #include "Main.h"
 
+#include "WindowsApplication.h"
+
 using namespace std;
 
 class MainFunctions
@@ -59,12 +61,13 @@ int mainFunction(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
+#ifdef WIN32
 	/*set current work path*/
 	char strPath[MAX_PATH] = {};
 	int nPos;
 	GetModuleFileName(NULL, strPath, MAX_PATH);
 	std::string workDir(strPath);
-	int n= workDir.rfind('\\');
+	int n = workDir.rfind('\\');
 	workDir.erase(n, workDir.size() - n);
 	SetCurrentDirectory(workDir.c_str());
 
@@ -75,6 +78,17 @@ int main(int argc, char* argv[])
 	argv[1] = exeName;
 	char resPath[] = "../../Source/App";
 	argv[2] = resPath;
+#endif // WIN32
 
-    return mainFunction(argc, argv);
+	Soul::WindowsApplication app;
+
+	if (!app.createWindow(800, 600, (HINSTANCE)GetModuleHandle(NULL)))
+	{
+		return 0;
+	}
+
+	app.main(0,0);
+	return 0;
+
+   // return mainFunction(argc, argv);
 }
