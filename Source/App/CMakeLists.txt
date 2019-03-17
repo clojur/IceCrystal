@@ -34,6 +34,7 @@ MainAppSource
  MainApp/Application.cpp
  MainApp/WindowsApplication.h
  MainApp/WindowsApplication.cpp
+ MainApp/RenderExampleGLFW.cpp
 )
 
 #É¸Ñ¡Æ÷

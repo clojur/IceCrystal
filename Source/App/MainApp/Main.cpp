@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
 #ifdef WIN32
 	/*set current work path*/
 	char strPath[MAX_PATH] = {};
-	int nPos;
+
 	GetModuleFileName(NULL, strPath, MAX_PATH);
 	std::string workDir(strPath);
 	int n = workDir.rfind('\\');
@@ -76,19 +76,19 @@ int main(int argc, char* argv[])
 	argc += 2;
 	char exeName[] = "renderglfw";
 	argv[1] = exeName;
-	char resPath[] = "../../Source/App";
+	char resPath[] = "../../Source/App/ResourceFiles";
 	argv[2] = resPath;
 #endif // WIN32
 
-	Soul::WindowsApplication app;
+	//Soul::WindowsApplication app;
 
-	if (!app.createWindow(800, 600, (HINSTANCE)GetModuleHandle(NULL)))
-	{
-		return 0;
-	}
+	//if (!app.createWindow(800, 600, (HINSTANCE)GetModuleHandle(NULL)))
+	//{
+	//	return 0;
+	//}
 
-	app.main(0,0);
-	return 0;
+	//app.main(0,0);
+	//return 0;
 
-   // return mainFunction(argc, argv);
+    return mainFunction(argc, argv);
 }
