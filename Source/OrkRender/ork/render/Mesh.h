@@ -46,7 +46,7 @@
 
 #include <GL/glew.h>
 
-#include "ork/macro.h"
+#include "ork/common/macro.h"
 #include "ork/render/CPUBuffer.h"
 #include "ork/render/GPUBuffer.h"
 #include "ork/render/MeshBuffers.h"

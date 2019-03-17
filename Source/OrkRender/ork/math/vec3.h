@@ -44,7 +44,7 @@
 
 #include <cassert>
 
-#include "pmath.h"
+#include "ork/common/pmath.h"
 #include "half.h"
 
 #include "ork/math/vec2.h"

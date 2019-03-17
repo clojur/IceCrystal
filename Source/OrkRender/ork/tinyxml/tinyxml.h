@@ -32,7 +32,7 @@ distribution.
 #pragma warning( disable : 4786 )
 #endif
 
-#include "ork/macro.h"
+#include "common/macro.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>

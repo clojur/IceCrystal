@@ -37,6 +37,7 @@ MainAppSource
  MainApp/RenderExampleGLFW.cpp
 )
 
+
 #É¸Ñ¡Æ÷
 source_group(MainApp FILES ${MainAppSource})
 source_group(ResourceFiles\\meshes FILES ${MeshFiles})
@@ -45,7 +46,7 @@ source_group(ResourceFiles\\scenes FILES ${ScenesFiles})
 source_group(ResourceFiles\\shaders FILES ${ShadersFiles})
 source_group(ResourceFiles\\textures FILES ${TexturesFiles})
 
-add_executable(${EXENAME} 
+add_executable(${EXENAME}
 	${MainAppSource}
 	${MeshFiles}
 	${MethodsFiles}

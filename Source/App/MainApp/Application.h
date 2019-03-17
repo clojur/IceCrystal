@@ -1,6 +1,6 @@
 #ifndef _SoulApplication_H
 #define _SoulApplicationApp_H
-#include <windows.h>
+#include "ork/common/Platform.h"
 namespace Soul
 {
 	class Application
@@ -8,7 +8,7 @@ namespace Soul
 	public:
 
 		//create window
-		virtual bool createWindow(int width,int height,HINSTANCE hInstance)=0;
+		virtual bool createWindow(int width,int height, INSTANCE hInstance)=0;
 
 		//main
 		virtual void main(int argc,char* argv[]) = 0;

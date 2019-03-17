@@ -42,7 +42,7 @@
 #ifndef _ORK_OBJECT_H_
 #define _ORK_OBJECT_H_
 
-#include"../macro.h"
+#include"ork/common/macro.h"
 
 #include <cstdio>
 #include <cassert>

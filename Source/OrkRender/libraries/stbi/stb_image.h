@@ -219,7 +219,7 @@ extern "C" {
 //
 // load image by filename, open file, or memory buffer
 //
-#include "ork/macro.h"
+#include "ork/common/macro.h"
 ORK_API stbi_uc *stbi_load_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp);
 
 #ifndef STBI_NO_STDIO

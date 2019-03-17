@@ -42,7 +42,7 @@
 #ifndef _ORK_BOX3_H_
 #define _ORK_BOX3_H_
 
-#include "pmath.h"
+#include "ork/common/pmath.h"
 #include <algorithm>
 
 #include "ork/math/vec3.h"

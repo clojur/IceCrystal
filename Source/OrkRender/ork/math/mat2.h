@@ -43,7 +43,7 @@
 #define _ORK_MAT2_H_
 
 #include <string.h>
-#include "pmath.h"
+#include "common/pmath.h"
 #include "ork/math/vec2.h"
 #include "ork/math/box2.h"
 

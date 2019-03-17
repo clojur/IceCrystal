@@ -45,7 +45,7 @@
 #include <algorithm>
 #include <assert.h>
 
-#include "pmath.h"
+#include "common/pmath.h"
 #include "ork/math/vec2.h"
 
 //Lars edit

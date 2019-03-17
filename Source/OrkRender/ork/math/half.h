@@ -42,7 +42,7 @@
 #ifndef _HALF_FLOAT_H_
 #define _HALF_FLOAT_H_
 
-#include "ork/macro.h"
+#include "ork/common/macro.h"
 
 namespace ork
 {

@@ -24,7 +24,14 @@ MakeGroup(util)
 MakeGroup(stbi)
 MakeGroup(tinyxml)
 
-file(GLOB common *.h)
+list(APPEND
+	common
+	common/macro.h
+	common/Platform.h
+	common/pmath.h
+	common/SoulInit.h
+	common/SoulInit.cpp
+)
 set(commonFiles ${common})
 source_group(common FILES ${commonFiles})
 

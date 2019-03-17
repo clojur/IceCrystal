@@ -61,6 +61,7 @@ int mainFunction(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
+
 #ifdef WIN32
 	/*set current work path*/
 	char strPath[MAX_PATH] = {};
@@ -74,21 +75,12 @@ int main(int argc, char* argv[])
 
 	//强行指定运行程序名和资源目录
 	argc += 2;
-	char exeName[] = "renderglfw";
+	//char exeName[] = "renderglfw";
+	char exeName[] = "renderWin32";
 	argv[1] = exeName;
 	char resPath[] = "../../Source/App/ResourceFiles";
 	argv[2] = resPath;
 #endif // WIN32
 
-	//Soul::WindowsApplication app;
-
-	//if (!app.createWindow(800, 600, (HINSTANCE)GetModuleHandle(NULL)))
-	//{
-	//	return 0;
-	//}
-
-	//app.main(0,0);
-	//return 0;
-
-    return mainFunction(argc, argv);
+return mainFunction(argc, argv);
 }
