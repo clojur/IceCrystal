@@ -29,8 +29,8 @@ list(APPEND
 	common/macro.h
 	common/Platform.h
 	common/pmath.h
-	common/SoulInit.h
-	common/SoulInit.cpp
+	common/RenderContext.h
+	common/RenderContext.cpp
 )
 set(commonFiles ${common})
 source_group(common FILES ${commonFiles})
