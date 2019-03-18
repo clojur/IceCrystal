@@ -2,7 +2,7 @@
 #include "Main.h"
 
 #include "stbi/stb_image.h"
-#include <gl/glew.h>
+#include "ork/common/GL/glew.h"
 #include <tchar.h>
 Soul::WindowsApplication::WindowsApplication()
 {

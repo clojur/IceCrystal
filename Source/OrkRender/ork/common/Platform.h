@@ -20,10 +20,11 @@
 #include <windows.h>
 
 
-#include <gl/glew.h>
-#include<GL/wglew.h>
-//#   include <gl/GL.h>
-//#   include <gl/GLu.h>
+#include "GL/glew.h"
+#include "GL/wglew.h"
+
+#include <gl/GL.h>
+#include <gl/GLu.h>
 
 #ifdef SOULSOUL3D_EXPORTS
 #define SOUL3D_API __declspec(dllexport)

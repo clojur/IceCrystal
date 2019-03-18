@@ -44,7 +44,7 @@
 
 #include <map>
 
-#include <GL/glew.h>
+#include "ork/common/GL/glew.h"
 #include <GLFW/glfw3.h>
 
 #include "ork/math/vec2.h"

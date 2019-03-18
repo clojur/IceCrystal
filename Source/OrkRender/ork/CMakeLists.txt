@@ -2,8 +2,7 @@ set(LibName ork)
 
 set(SDKsDir ${PROJECT_SOURCE_DIR}/SDKs)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-include_directories(${SDKsDir}/glew/include)
-
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/common)
 
 macro(MakeGroup subDir)
 	file(GLOB CodeFiles ${subDir}/*.h ${subDir}/*.cpp)
@@ -31,16 +30,17 @@ list(APPEND
 	common/pmath.h
 	common/RenderContext.h
 	common/RenderContext.cpp
+	common/glew.c
 )
 set(commonFiles ${common})
 source_group(common FILES ${commonFiles})
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-	set(ExternLib  opengl32 glu freeglutd glew32d glfw3  pthreadVSE2)
+	set(ExternLib  opengl32 glu freeglutd  glfw3  pthreadVSE2)
 elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-	set(ExternLib opengl32 glu freeglut glew32 glfw3  pthreadVSE2)
+	set(ExternLib opengl32 glu freeglut  glfw3  pthreadVSE2)
 else()
-	set(ExternLib opengl32 glu freeglut glew32 glfw3  pthreadVSE2)
+	set(ExternLib opengl32 glu freeglut  glfw3  pthreadVSE2)
 endif()
 
 

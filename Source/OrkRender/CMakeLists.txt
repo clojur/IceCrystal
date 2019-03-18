@@ -10,7 +10,6 @@ include_directories(${${libName}Include})
 link_directories(${${libName}Lib})
 endmacro()
 
-DependLibrary(glew)
 DependLibrary(freeglut)
 DependLibrary(glfw)
 DependLibrary(pthread)
@@ -23,5 +22,6 @@ add_definitions(
     "-D HAVE_STRUCT_TIMESPEC"
     "-D TIXML_USE_STL"
 	"-D DISABLE_MSVC_WARNINGS"
+	"-D GLEW_STATIC"
 )       
 add_subdirectory(ork)

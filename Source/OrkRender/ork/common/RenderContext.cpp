@@ -61,6 +61,7 @@ bool Soul::RenderContext::initRenderContext(HWINDOW hWnd)
 	if (glewInit() != GLEW_OK)
 	{
 		ork::Logger::ERROR_LOGGER->log("SoulInit","glewInit Failed!");
+		ork::Logger::ERROR_LOGGER->flush();
 		return false;
 	}
 	if (!WGLEW_ARB_create_context || !WGLEW_ARB_pixel_format)
@@ -102,6 +103,7 @@ bool Soul::RenderContext::initRenderContext(HWINDOW hWnd)
 	if (!SetPixelFormat(_hDisplay, nPixelFormat, &pfd2))
 	{
 		ork::Logger::ERROR_LOGGER->log("SoulInit", "setup pixel format Failed!");
+		ork::Logger::ERROR_LOGGER->flush();
 		return false;
 	}
 	GLint attribs[] = {
@@ -115,11 +117,13 @@ bool Soul::RenderContext::initRenderContext(HWINDOW hWnd)
 	if (_hGlrc == NULL)
 	{
 		ork::Logger::ERROR_LOGGER->log("SoulInit", "create opengl3.3 failed!\nattempt create opengl3.2");
+		ork::Logger::ERROR_LOGGER->flush();
 		attribs[3] = 2;
 		_hGlrc = wglCreateContextAttribsARB(_hDisplay, 0, attribs);
 		if (_hGlrc == NULL)
 		{
 			ork::Logger::ERROR_LOGGER->log("SoulInit", "create opengl3.2 failed!");
+			ork::Logger::ERROR_LOGGER->flush();
 			return false;
 		}
 	}
