@@ -24,6 +24,7 @@ namespace Soul
 		virtual void main(int argc, char* argv[]);
 
 		void creatScene();
+		void resize();
 		void render();
 
 	LRESULT  eventProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -32,6 +33,8 @@ namespace Soul
 		static LRESULT CALLBACK wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 		ork::ptr<ork::FrameBuffer> _fb;
+		int _width;
+		int _height;
 	};
 };
 
