@@ -111,25 +111,27 @@ void Soul::WindowsApplication::creatScene()
 		 }\n"));
 
 	_program->getUniformSampler("sampler")->set(tex);
+
+
+	_fb = ork::FrameBuffer::getDefault();
+	_fb->setDepthTest(true,ork::LESS);
 }
 
 void Soul::WindowsApplication::render()
 {
+	_fb->clear(true, false, true);
+	_fb->setClearColor(ork::vec4f(1, 0, 0, 1));
 	
-	ork::ptr<ork::FrameBuffer> fb = ork::FrameBuffer::getDefault();
-	fb->clear(true,true,false);
-	fb->setClearColor(ork::vec4f(1,0,0,1));
-	fb->draw(_program,*_mesh);
-
-	_context.swapBuffers();
-}
-
-void Soul::WindowsApplication::reSize(int x, int y)
-{
 	RECT rect;
 	GetWindowRect((HWND)_hWnd, &rect);
-	//ork::FrameBuffer::getDefault()->setViewport(ork::vec4<GLint>(0, 0, rect.right, rect.bottom));
-	//_program->getUniform2f("scale")->set(ork::vec2f(1.0f / rect.right, 1.0f / rect.bottom));
+	int width(0), height(0);
+	width = rect.right - rect.left;
+	height = rect.bottom - rect.left;
+	_fb->setViewport(ork::vec4<GLint>(0, 0, width, height));
+	_program->getUniform2f("scale")->set(ork::vec2f(1.0f / rect.right, 1.0f / rect.bottom));
+	_fb->draw(_program,*_mesh);
+
+	_context.swapBuffers();
 }
 
 LRESULT Soul::WindowsApplication::eventProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -150,9 +152,6 @@ LRESULT Soul::WindowsApplication::eventProc(HWND hWnd, UINT message, WPARAM wPar
 	}
 	case WM_SIZE:
 	{
-		RECT rect;
-		GetWindowRect((HWND)_hWnd, &rect);
-		reSize(rect.right, rect.bottom);
 		break;
 	}
 	default:
@@ -191,13 +190,13 @@ LRESULT Soul::WindowsApplication::wndProc(HWND hWnd, UINT message, WPARAM wParam
 
 int RenderWin32(int argc, char* argv[])
 {
-	Soul::WindowsApplication app;
+	Soul::WindowsApplication* pApp=new Soul::WindowsApplication;
 
-	if (!app.createWindow(800, 600, (HINSTANCE)GetModuleHandle(NULL)))
+	if (!pApp->createWindow(800, 600, (HINSTANCE)GetModuleHandle(NULL)))
 	{
 		return 0;
 	}
-	app.main(argc, argv);
+	pApp->main(argc, argv);
 	return 0;
 }
 

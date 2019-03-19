@@ -75,8 +75,8 @@ int main(int argc, char* argv[])
 
 	//强行指定运行程序名和资源目录
 	argc += 2;
-	char exeName[] = "renderglfw";
-	//char exeName[] = "renderWin32";
+	//char exeName[] = "renderglfw";
+	char exeName[] = "renderWin32";
 	argv[1] = exeName;
 	char resPath[] = "../../Source/App/ResourceFiles";
 	argv[2] = resPath;

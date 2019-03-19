@@ -25,12 +25,13 @@ namespace Soul
 
 		void creatScene();
 		void render();
-		void reSize(int x, int y);
 
 	LRESULT  eventProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 	protected:
 		static LRESULT CALLBACK wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+
+		ork::ptr<ork::FrameBuffer> _fb;
 	};
 };
 
