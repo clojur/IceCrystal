@@ -44,10 +44,6 @@ else()
 endif()
 
 
-if(NOT DEFINED CMAKE_DEBUG_POSTFIX)
-    set(CMAKE_DEBUG_POSTFIX "d")
-endif()
-
 add_library(${LibName} SHARED
  ${commonFiles}
  ${coreFiles}
