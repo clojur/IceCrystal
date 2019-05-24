@@ -4,8 +4,11 @@ set(SourceDir ${PROJECT_SOURCE_DIR}/Source)
 
 #外部库目录
 include_directories(
+ ${SOURCE_DIR}
  ${SourceDir}/OrkRender/libraries
  ${SourceDir}/OrkRender
+ ${SourceDir}/Proland
+  ${SourceDir}/Proland/common
  ${PROJECT_SOURCE_DIR}/SDKs/glew/include
   ${PROJECT_SOURCE_DIR}/SDKs/GLFW/include
 )
@@ -37,17 +40,29 @@ MainAppSource
  MainApp/RenderExampleGLFW.cpp
 )
 
+list(APPEND
+ProlandSource
+ ProlandApp/examples/core/Core.cpp
+ ProlandApp/examples/forest/trees1/Trees1.cpp
+)
+
 
 #筛选器
 source_group(MainApp FILES ${MainAppSource})
+Source_group(ProlandApp FILES ${ProlandSource})
 source_group(ResourceFiles\\meshes FILES ${MeshFiles})
 source_group(ResourceFiles\\methods FILES ${MethodsFiles})
 source_group(ResourceFiles\\scenes FILES ${ScenesFiles})
 source_group(ResourceFiles\\shaders FILES ${ShadersFiles})
 source_group(ResourceFiles\\textures FILES ${TexturesFiles})
 
+add_definitions(
+ -D TIXML_USE_STL
+)
+
 add_executable(${EXENAME}
 	${MainAppSource}
+	${ProlandSource}
 	${MeshFiles}
 	${MethodsFiles}
 	${ScenesFiles}
@@ -56,9 +71,9 @@ add_executable(${EXENAME}
 )
 
 if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-	set(ExternLib "orkd")
+	set(ExternLib "orkd" "prolandd")
 else()
-	set(ExternLib "ork")
+	set(ExternLib "ork" "proland")
 endif()
 
 #Added whole archive due to the "plug-in usage"

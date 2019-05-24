@@ -27,7 +27,7 @@
 
 #ifndef _PROLAND_TWEAKBARHANDLER_H_
 #define _PROLAND_TWEAKBARHANDLER_H_
-
+#include "ProlandMacro.h"
 #include "AntTweakBar.h"
 
 #include "ork/core/Object.h"

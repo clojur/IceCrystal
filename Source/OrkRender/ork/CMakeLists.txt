@@ -67,3 +67,5 @@ if(WIN32)
 endif()
 
 target_link_libraries(${LibName}  ${ExternLib})
+
+set_property(TARGET ${LibName} PROPERTY FOLDER "Proland")

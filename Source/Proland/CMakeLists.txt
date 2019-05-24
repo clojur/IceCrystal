@@ -10,6 +10,8 @@ ${CMAKE_CURRENT_SOURCE_DIR}
 ${CMAKE_CURRENT_SOURCE_DIR}/common
 ${SDKsDir}
 ${SDKsDir}/pthread/include
+${SDKsDir}/tiff-4.0.4/libtiff
+${PROJECT_SOURCE_DIR}/libs/tiff
 )
 
 macro(MakeGroup subDir)
@@ -27,8 +29,9 @@ MakeGroup(particles/terrain)
 MakeGroup(producer)
 MakeGroup(terrain)
 MakeGroup(ui)
-#MakeGroup(ui/twbar)
 MakeGroup(util)
+MakeGroup(plugin)
+MakeGroup(plants)
 
 list(APPEND
 	common
@@ -37,12 +40,13 @@ list(APPEND
 set(commonFiles ${common})
 source_group(common FILES ${commonFiles})
 
+
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-	set(ExternLib  opengl32 glu freeglutd  glfw3  pthreadVSE2 orkd)
+	set(ExternLib  opengl32 glu freeglutd  glfw3  pthreadVSE2 orkd tiffd zlibd)
 elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-	set(ExternLib opengl32 glu freeglut  glfw3  pthreadVSE2 ork)
+	set(ExternLib opengl32 glu freeglut  glfw3  pthreadVSE2 ork tiff zlib)
 else()
-	set(ExternLib opengl32 glu freeglut  glfw3  pthreadVSE2 ork)
+	set(ExternLib opengl32 glu freeglut  glfw3  pthreadVSE2 ork tiff zlib)
 endif()
 
 add_definitions(
@@ -68,16 +72,17 @@ DependLibrary(pthread)
 DependLibrary(opengl)
 
 add_library(${LibName} SHARED
- ${commonFiles}
- ${mathFiles}
- ${particlesFiles}
- ${particles/screenFiles}
- ${particles/terrainFiles}
- ${producerFiles}
- ${terrainFiles}
- ${uiFiles}
- ${utilFiles}
- #${ui/twbarFiles}
+  ${commonFiles}
+  ${mathFiles}
+  ${particlesFiles}
+  ${particles/screenFiles}
+  ${particles/terrainFiles}
+  ${producerFiles}
+  ${terrainFiles}
+  ${uiFiles}
+  ${utilFiles}
+  ${pluginFiles}
+  ${plantsFiles}
 )
 
 if(WIN32)
@@ -88,3 +93,5 @@ if(WIN32)
 endif()
 
 target_link_libraries(${LibName}  ${ExternLib})
+
+set_property(TARGET ${LibName} PROPERTY FOLDER "Proland")

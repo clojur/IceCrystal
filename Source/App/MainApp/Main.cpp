@@ -59,27 +59,28 @@ int mainFunction(int argc, char* argv[])
     return 0;
 }
 
-int main(int argc, char* argv[])
-{
-
-#ifdef WIN32
-	/*set current work path*/
-	char strPath[MAX_PATH] = {};
-	GetModuleFileName(NULL, strPath, MAX_PATH);
-	std::string workDir(strPath);
-	int n = workDir.rfind('\\');
-	workDir.erase(n, workDir.size() - n);
-	SetCurrentDirectory(workDir.c_str());
-
-
-	//强行指定运行程序名和资源目录
-	argc += 2;
-	//char exeName[] = "renderglfw";
-	char exeName[] = "renderWin32";
-	argv[1] = exeName;
-	char resPath[] = "../../Source/App/ResourceFiles";
-	argv[2] = resPath;
-#endif // WIN32
-
-return mainFunction(argc, argv);
-}
+//int main(int argc, char* argv[])
+//{
+//
+//#ifdef WIN32
+//	/*set current work path*/
+//	char strPath[MAX_PATH] = {};
+//	GetModuleFileName(NULL, strPath, MAX_PATH);
+//	std::string workDir(strPath);
+//	int n = workDir.rfind('\\');
+//	workDir.erase(n, workDir.size() - n);
+//	SetCurrentDirectory(workDir.c_str());
+//
+//
+//	//强行指定运行程序名和资源目录
+//	argc += 2;
+//	//char exeName[] = "renderglfw";
+//	//char exeName[] = "renderWin32";
+//	char exeName[] = "renderhello";
+//	argv[1] = exeName;
+//	char resPath[] = "../../Source/App/ResourceFiles";
+//	argv[2] = resPath;
+//#endif // WIN32
+//
+//return mainFunction(argc, argv);
+//}

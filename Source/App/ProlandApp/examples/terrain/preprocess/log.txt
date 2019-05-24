@@ -1,0 +1,1 @@
+data/rgb/residuals/RGB6.dat

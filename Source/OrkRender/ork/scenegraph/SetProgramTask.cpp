@@ -143,7 +143,7 @@ public:
         e = e == NULL ? desc->descriptor : e;
         checkParameters(desc, e, "setUniforms,");
         vector<QualifiedName> modules;
-        bool setUniforms;
+        bool setUniforms=false;
         if (e->Attribute("setUniforms") != NULL) {
             setUniforms = strcmp(e->Attribute("setUniforms"), "true") == 0;
         }

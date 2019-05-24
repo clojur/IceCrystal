@@ -33,3 +33,5 @@ add_custom_target(CopyTask ALL DEPENDS COPY_RES)
 add_subdirectory(OrkRender)
 add_subdirectory(App)
 add_subdirectory(Proland)
+
+set_property(TARGET ${LibName} PROPERTY FOLDER "CMakePredefinedTargets")

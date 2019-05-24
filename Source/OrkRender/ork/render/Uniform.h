@@ -45,6 +45,7 @@
 #include <map>
 #include <string>
 
+#include "ork/common/OrkMacro.h"
 #include "ork/core/Factory.h"
 #include "ork/math/vec2.h"
 #include "ork/math/vec3.h"
@@ -270,31 +271,31 @@ extern const char uniform1b[];
  * A uniform holding a single float value.
  * @ingroup render
  */
-typedef Uniform1<VEC1F, GLfloat, GLfloat, uniform1f, value1f> Uniform1f;
+typedef Uniform1<VEC1F, GLfloat, GLfloat, uniform1f, value1f>   Uniform1f;
 
 /**
  * A uniform holding a single double value.
  * @ingroup render
  */
-typedef Uniform1<VEC1D, GLdouble, GLdouble, uniform1d, value1d> Uniform1d;
+typedef Uniform1<VEC1D, GLdouble, GLdouble, uniform1d, value1d>  Uniform1d;
 
 /**
  * A uniform holding a single signed integer value.
  * @ingroup render
  */
-typedef Uniform1<VEC1I, GLint, GLint, uniform1i, value1i> Uniform1i;
+typedef Uniform1<VEC1I, GLint, GLint, uniform1i, value1i>  Uniform1i;
 
 /**
  * A uniform holding a single unsigned integer value.
  * @ingroup render
  */
-typedef Uniform1<VEC1UI, GLuint, GLuint, uniform1ui, value1ui> Uniform1ui;
+typedef Uniform1<VEC1UI, GLuint, GLuint, uniform1ui, value1ui>  Uniform1ui;
 
 /**
  * A uniform holding a single boolean value.
  * @ingroup render
  */
-typedef Uniform1<VEC1B, bool, GLuint, uniform1b, value1b> Uniform1b;
+typedef Uniform1<VEC1B, bool, GLuint, uniform1b, value1b>  Uniform1b;
 
 // ----------------------------------------------------------------------------
 
