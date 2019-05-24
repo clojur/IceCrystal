@@ -1,6 +1,6 @@
 #pragma once
 
-#include "macro.h"
+#include "OrkMacro.h"
 #define SOUL_PLATFORM_WIN32     1
 #define SOUL_PLATFORM_LINUX     2
 #define SOUL_PLATFORM_APPLE     3

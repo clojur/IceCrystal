@@ -1,4 +1,4 @@
-set(LibName ork)
+set(LibName Ork)
 
 set(SDKsDir ${PROJECT_SOURCE_DIR}/SDKs)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
@@ -25,7 +25,7 @@ MakeGroup(tinyxml)
 
 list(APPEND
 	common
-	common/macro.h
+	common/OrkMacro.h
 	common/Platform.h
 	common/pmath.h
 	common/RenderContext.h
@@ -43,6 +43,7 @@ else()
 	set(ExternLib opengl32 glu freeglut  glfw3  pthreadVSE2)
 endif()
 
+add_definitions(-Dork_EXPORTS)
 
 add_library(${LibName} SHARED
  ${commonFiles}

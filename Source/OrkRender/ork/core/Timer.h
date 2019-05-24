@@ -42,7 +42,7 @@
 #ifndef _ORK_TIMER_H_
 #define _ORK_TIMER_H_
 
-#include "ork/common/macro.h"
+#include "ork/common/OrkMacro.h"
 
 namespace ork
 {

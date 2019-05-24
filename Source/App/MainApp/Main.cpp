@@ -65,7 +65,6 @@ int main(int argc, char* argv[])
 #ifdef WIN32
 	/*set current work path*/
 	char strPath[MAX_PATH] = {};
-
 	GetModuleFileName(NULL, strPath, MAX_PATH);
 	std::string workDir(strPath);
 	int n = workDir.rfind('\\');

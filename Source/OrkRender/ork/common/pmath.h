@@ -10,7 +10,7 @@
  *     degrees, radians, safe_asin, safe_acos, round, ipow
  */
 
-#include"macro.h"
+#include"OrkMacro.h"
 
 #include <math.h>
 
