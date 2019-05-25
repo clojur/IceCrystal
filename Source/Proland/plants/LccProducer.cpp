@@ -199,11 +199,11 @@ void LccProducer::update(ptr<SceneManager> scene)
 {
 
     if (densityU != NULL) {
-        //float td = densityU->get();
-        //if (lastTreeDensity != 0.0 && lastTreeDensity != td) {
-        //    invalidateTiles();
-        //}
-        //lastTreeDensity = td;
+        float td = densityU->get();
+        if (lastTreeDensity != 0.0 && lastTreeDensity != td) {
+            invalidateTiles();
+        }
+        lastTreeDensity = td;
     }
 
 	vec4d frustum[6];

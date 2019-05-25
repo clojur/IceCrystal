@@ -11,6 +11,7 @@ ${CMAKE_CURRENT_SOURCE_DIR}/common
 ${SDKsDir}
 ${SDKsDir}/pthread/include
 ${SDKsDir}/tiff-4.0.4/libtiff
+${SDKsDir}/AntTweakBar/include
 ${PROJECT_SOURCE_DIR}/libs/tiff
 )
 
@@ -29,6 +30,7 @@ MakeGroup(particles/terrain)
 MakeGroup(producer)
 MakeGroup(terrain)
 MakeGroup(ui)
+MakeGroup(ui/twbar)
 MakeGroup(util)
 MakeGroup(plugin)
 MakeGroup(plants)
@@ -42,11 +44,41 @@ source_group(common FILES ${commonFiles})
 
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-	set(ExternLib  opengl32 glu freeglutd  glfw3  pthreadVSE2 orkd tiffd zlibd)
+	set(ExternLib  
+	opengl32 
+	glu 
+	freeglutd  
+	glfw3  
+	pthreadVSE2 
+	orkd 
+	tiffd 
+	zlibd
+	AntTweakBard
+)
 elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-	set(ExternLib opengl32 glu freeglut  glfw3  pthreadVSE2 ork tiff zlib)
+	set(ExternLib 
+	opengl32 
+	glu 
+	freeglut 
+	glfw3  
+	pthreadVSE2 
+	ork 
+	tiff 
+	zlib
+	AntTweakBar
+)
 else()
-	set(ExternLib opengl32 glu freeglut  glfw3  pthreadVSE2 ork tiff zlib)
+	set(ExternLib 
+	opengl32 
+	glu 
+	freeglut  
+	glfw3  
+	pthreadVSE2 
+	ork 
+	tiff 
+	zlib
+	AntTweakBar
+)
 endif()
 
 add_definitions(
@@ -77,6 +109,7 @@ add_library(${LibName} SHARED
   ${particlesFiles}
   ${particles/screenFiles}
   ${particles/terrainFiles}
+  ${ui/twbarFiles}
   ${producerFiles}
   ${terrainFiles}
   ${uiFiles}

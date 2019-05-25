@@ -42,9 +42,6 @@ double mix2(double x, double y, double t)
     return abs(x - y) < max(x, y) * 1e-5 ? y : mix(x, y, t);
 }
 
-BasicViewHandler::Position::Position() : x0(0.0), y0(0.0), theta(0.0), phi(0.0), d(0.0), sx(0.0), sy(0.0), sz(0.0)
-{
-}
 
 BasicViewHandler::BasicViewHandler() : EventHandler("BasicViewHandler")
 {

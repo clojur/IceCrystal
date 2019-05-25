@@ -62,7 +62,7 @@ public:
     /**
      * A TweakBarHandler with additional options.
      */
-    struct BarData
+    struct PROLAND_API BarData
     {
     public:
         /**
@@ -137,7 +137,7 @@ public:
      *
      * @param an EventHandler.
      */
-    void setNext(ptr<EventHandler> next);
+   void setNext(ptr<EventHandler> next);
 
     virtual void redisplay(double t, double dt);
 

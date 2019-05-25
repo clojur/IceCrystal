@@ -82,18 +82,24 @@ public:
  * and to start an animation to go smoothly from one position to another.
  * @ingroup proland_ui
  */
+
 class PROLAND_API  BasicViewHandler : public EventHandler
 {
 public:
+
+	struct  Position
+	{
+		double x0, y0, theta, phi, d, sx, sy, sz;
+
+		Position() : x0(0.0), y0(0.0), theta(0.0), phi(0.0), d(0.0), sx(0.0), sy(0.0), sz(0.0)
+		{
+
+		}
+	};
+
     /**
      * A TerrainViewController position and a light source position.
      */
-    struct Position {
-
-        double x0, y0, theta, phi, d, sx, sy, sz;
-
-        Position();
-    };
 
     /**
      * Creates a new BasicViewHandler.

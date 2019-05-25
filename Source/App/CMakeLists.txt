@@ -4,13 +4,14 @@ set(SourceDir ${PROJECT_SOURCE_DIR}/Source)
 
 #外部库目录
 include_directories(
- ${SOURCE_DIR}
- ${SourceDir}/OrkRender/libraries
- ${SourceDir}/OrkRender
- ${SourceDir}/Proland
-  ${SourceDir}/Proland/common
- ${PROJECT_SOURCE_DIR}/SDKs/glew/include
-  ${PROJECT_SOURCE_DIR}/SDKs/GLFW/include
+	${SOURCE_DIR}
+	${SourceDir}/OrkRender/libraries
+	${SourceDir}/OrkRender
+	${SourceDir}/Proland
+	${SourceDir}/Proland/common
+	${PROJECT_SOURCE_DIR}/SDKs/AntTweakBar/include
+	${PROJECT_SOURCE_DIR}/SDKs/glew/include
+	${PROJECT_SOURCE_DIR}/SDKs/GLFW/include
 )
 
 #预处理定义
@@ -71,9 +72,9 @@ add_executable(${EXENAME}
 )
 
 if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-	set(ExternLib "orkd" "prolandd")
+	set(ExternLib orkd prolandd)
 else()
-	set(ExternLib "ork" "proland")
+	set(ExternLib ork proland)
 endif()
 
 #Added whole archive due to the "plug-in usage"
