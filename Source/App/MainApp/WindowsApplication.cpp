@@ -2,7 +2,7 @@
 #include "Main.h"
 
 #include "stbi/stb_image.h"
-#include "ork/common/GL/glew.h"
+#include "Soul/common/GL/glew.h"
 #include <tchar.h>
 Soul::WindowsApplication::WindowsApplication()
 {
@@ -83,12 +83,12 @@ void Soul::WindowsApplication::main(int argc, char * argv[])
 
 void Soul::WindowsApplication::creatScene()
 {
-	_mesh = new ork::Mesh<ork::vec2f, unsigned int>(ork::MeshMode::TRIANGLE_STRIP,ork::MeshUsage::GPU_STATIC);
-	_mesh->addAttributeType(0, 2, ork::AttributeType::A32F, false);
-	_mesh->addVertex(ork::vec2f(-1,-1));
-	_mesh->addVertex(ork::vec2f(+1, -1));
-	_mesh->addVertex(ork::vec2f(-1, +1));
-	_mesh->addVertex(ork::vec2f(+1, +1));
+	_mesh = new Soul::Mesh<Soul::vec2f, unsigned int>(Soul::MeshMode::TRIANGLE_STRIP,Soul::MeshUsage::GPU_STATIC);
+	_mesh->addAttributeType(0, 2, Soul::AttributeType::A32F, false);
+	_mesh->addVertex(Soul::vec2f(-1,-1));
+	_mesh->addVertex(Soul::vec2f(+1, -1));
+	_mesh->addVertex(Soul::vec2f(-1, +1));
+	_mesh->addVertex(Soul::vec2f(+1, +1));
 
 	unsigned char data[16] = {
 		0,255,0,255,
@@ -97,16 +97,16 @@ void Soul::WindowsApplication::creatScene()
 		0,255,0,255
 	};
 
-	ork::ptr<ork::Texture2D> tex = new ork::Texture2D(
+	Soul::ptr<Soul::Texture2D> tex = new Soul::Texture2D(
 	 4
 	,4
-	,ork::TextureInternalFormat::R8
-	,ork::TextureFormat::RGB
-	,ork::PixelType::UNSIGNED_BYTE
-	,ork::Texture::Parameters().mag(ork::TextureFilter::NEAREST)
-	,ork::Buffer::Parameters(),ork::CPUBuffer(data));
+	,Soul::TextureInternalFormat::R8
+	,Soul::TextureFormat::RGB
+	,Soul::PixelType::UNSIGNED_BYTE
+	,Soul::Texture::Parameters().mag(Soul::TextureFilter::NEAREST)
+	,Soul::Buffer::Parameters(),Soul::CPUBuffer(data));
 
-	_program = new ork::Program(new ork::Module(330,NULL,
+	_program = new Soul::Program(new Soul::Module(330,NULL,
 		"uniform sampler2D sampler;\n\
 		 uniform vec2 scale;\n\
 		 layout(location=0) out vec4 data;\n\
@@ -118,8 +118,8 @@ void Soul::WindowsApplication::creatScene()
 	_program->getUniformSampler("sampler")->set(tex);
 
 
-	_fb = ork::FrameBuffer::getDefault();
-	_fb->setDepthTest(true,ork::LESS);
+	_fb = Soul::FrameBuffer::getDefault();
+	_fb->setDepthTest(true,Soul::LESS);
 
 	resize();
 }
@@ -128,15 +128,15 @@ void Soul::WindowsApplication::resize()
 {
 	if (_fb.get())
 	{
-		_fb->setViewport(ork::vec4<GLint>(0, 0, _width, _height));
-		_program->getUniform2f("scale")->set(ork::vec2f(1.0f / _width, 1.0f / _height));
+		_fb->setViewport(Soul::vec4<GLint>(0, 0, _width, _height));
+		_program->getUniform2f("scale")->set(Soul::vec2f(1.0f / _width, 1.0f / _height));
 	}
 }
 
 void Soul::WindowsApplication::render()
 {
 	_fb->clear(true, false,true);
-	_fb->setClearColor(ork::vec4f(1, 0, 0, 1));
+	_fb->setClearColor(Soul::vec4f(1, 0, 0, 1));
 	_fb->draw(_program,*_mesh);
 
 	_context.swapBuffers();

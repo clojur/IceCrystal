@@ -1,14 +1,16 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(OrkFrame)
+project(IceCrystal)
 
 set(CMAKE_BUILD_TYPE "Debug")
 
 IF(WIN32)
 	IF(CMAKE_CL_64)
 		set(PLATFORM "x64")
+		add_compile_options(-std=c++11 /MP)
 	ELSE(CMAKE_CL_64)
 		set(PLATFORM "x86")
+		add_compile_options(-std=c++11 /MP)
 	ENDIF(CMAKE_CL_64)
 ENDIF(WIN32)
 

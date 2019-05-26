@@ -117,7 +117,7 @@ struct inflate_state {
     unsigned have;              /* number of code lengths in lens[] */
     code FAR *next;             /* next available space in codes[] */
     unsigned short lens[320];   /* temporary storage for code lengths */
-    unsigned short work[288];   /* work area for code table building */
+    unsigned short wSoul[288];   /* wSoul area for code table building */
     code codes[ENOUGH];         /* space for code tables */
     int sane;                   /* if false, allow invalid distance too far */
     int back;                   /* bits back of last unprocessed length/lit */

@@ -32,7 +32,7 @@
  *
  * This code is derived from the compress program whose code is
  * derived from software contributed to Berkeley by James A. Woods,
- * derived from original work by Spencer Thomas and Joseph Orost.
+ * derived from original wSoul by Spencer Thomas and Joseph Orost.
  *
  * The original Berkeley copyright notice appears below in its entirety.
  */
@@ -1146,7 +1146,7 @@ bad:
  * All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
- * James A. Woods, derived from original work by Spencer Thomas
+ * James A. Woods, derived from original wSoul by Spencer Thomas
  * and Joseph Orost.
  *
  * Redistribution and use in source and binary forms are permitted

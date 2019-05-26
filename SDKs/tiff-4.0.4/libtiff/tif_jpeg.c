@@ -489,7 +489,7 @@ TIFFjpeg_tables_dest(JPEGState* sp, TIFF* tif)
 {
 	(void) tif;
 	/*
-	 * Allocate a working buffer for building tables.
+	 * Allocate a wSouling buffer for building tables.
 	 * Initial size is 1000 bytes, which is usually adequate.
 	 */
 	if (sp->jpegtables)
@@ -578,7 +578,7 @@ std_skip_input_data(j_decompress_ptr cinfo, long num_bytes)
 static void
 std_term_source(j_decompress_ptr cinfo)
 {
-	/* No work necessary here */
+	/* No wSoul necessary here */
 	(void) cinfo;
 }
 
@@ -708,7 +708,7 @@ JPEGFixupTagsSubsampling(TIFF* tif)
 	/*
 	 * Some JPEG-in-TIFF produces do not emit the YCBCRSUBSAMPLING values in
 	 * the TIFF tags, but still use non-default (2,2) values within the jpeg
-	 * data stream itself.  In order for TIFF applications to work properly
+	 * data stream itself.  In order for TIFF applications to wSoul properly
 	 * - for instance to get the strip buffer size right - it is imperative
 	 * that the subsampling be available before we start reading the image
 	 * data normally.  This function will attempt to analyze the first strip in
@@ -1259,7 +1259,7 @@ JPEGDecode(TIFF* tif, uint8* buf, tmsize_t cc, uint16 s)
 	/* data is expected to be read in multiples of a scanline */
 	if (nrows)
         {
-                JSAMPROW line_work_buf = NULL;
+                JSAMPROW line_wSoul_buf = NULL;
 
                 /*
                  * For 6B, only use temporary buffer for 12 bit imagery.
@@ -1267,14 +1267,14 @@ JPEGDecode(TIFF* tif, uint8* buf, tmsize_t cc, uint16 s)
                  */
                 if( sp->cinfo.d.data_precision == 12 )
                 {
-                        line_work_buf = (JSAMPROW)
+                        line_wSoul_buf = (JSAMPROW)
                                 _TIFFmalloc(sizeof(short) * sp->cinfo.d.output_width
                                             * sp->cinfo.d.num_components );
                 }
 
                do
                {
-                       if( line_work_buf != NULL )
+                       if( line_wSoul_buf != NULL )
                        {
                                /*
                                 * In the MK1 case, we aways read into a 16bit
@@ -1282,7 +1282,7 @@ JPEGDecode(TIFF* tif, uint8* buf, tmsize_t cc, uint16 s)
                                 * In 6B case we only read into 16 bit buffer
                                 * for 12bit data, which we need to repack.
                                 */
-                               if (TIFFjpeg_read_scanlines(sp, &line_work_buf, 1) != 1)
+                               if (TIFFjpeg_read_scanlines(sp, &line_wSoul_buf, 1) != 1)
                                        return (0);
 
                                if( sp->cinfo.d.data_precision == 12 )
@@ -1295,7 +1295,7 @@ JPEGDecode(TIFF* tif, uint8* buf, tmsize_t cc, uint16 s)
                                        {
                                                unsigned char *out_ptr =
                                                        ((unsigned char *) buf) + iPair * 3;
-                                               JSAMPLE *in_ptr = line_work_buf + iPair * 2;
+                                               JSAMPLE *in_ptr = line_wSoul_buf + iPair * 2;
 
                                                out_ptr[0] = (in_ptr[0] & 0xff0) >> 4;
                                                out_ptr[1] = ((in_ptr[0] & 0xf) << 4)
@@ -1312,7 +1312,7 @@ JPEGDecode(TIFF* tif, uint8* buf, tmsize_t cc, uint16 s)
                                        for( iValue = 0; iValue < value_count; iValue++ )
                                        {
                                                ((unsigned char *) buf)[iValue] =
-                                                       line_work_buf[iValue] & 0xff;
+                                                       line_wSoul_buf[iValue] & 0xff;
                                        }
                                }
                        }
@@ -1322,8 +1322,8 @@ JPEGDecode(TIFF* tif, uint8* buf, tmsize_t cc, uint16 s)
                        cc -= sp->bytesperline;
                } while (--nrows > 0);
 
-               if( line_work_buf != NULL )
-                       _TIFFfree( line_work_buf );
+               if( line_wSoul_buf != NULL )
+                       _TIFFfree( line_wSoul_buf );
         }
 
         /* Update information on consumed data */
@@ -1658,7 +1658,7 @@ JPEGSetupEncode(TIFF* tif)
 	/* Verify miscellaneous parameters */
 
 	/*
-	 * This would need work if libtiff ever supports different
+	 * This would need wSoul if libtiff ever supports different
 	 * depths for different components, or if libjpeg ever supports
 	 * run-time selection of depth.  Neither is imminent.
 	 */

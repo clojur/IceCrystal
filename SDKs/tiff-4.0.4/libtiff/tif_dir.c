@@ -193,7 +193,7 @@ _TIFFVSetField(TIFF* tif, uint32 tag, va_list ap)
 		 * samples, set it up here.  Note that since tags are required
 		 * to be ordered, compression code can override this behaviour
 		 * in the setup method if it wants to roll the post decoding
-		 * work in with its normal work.
+		 * wSoul in with its normal wSoul.
 		 */
 		if (tif->tif_flags & TIFF_SWAB) {
 			if (td->td_bitspersample == 8)

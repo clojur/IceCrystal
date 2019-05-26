@@ -1,6 +1,6 @@
 #ifndef _SoulApplication_H
 #define _SoulApplicationApp_H
-#include "ork/common/Platform.h"
+#include "Soul/common/Platform.h"
 namespace Soul
 {
 	class Application

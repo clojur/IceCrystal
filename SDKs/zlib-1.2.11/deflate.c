@@ -253,7 +253,7 @@ int ZEXPORT deflateInit2_(strm, level, method, windowBits, memLevel, strategy,
     static const char my_version[] = ZLIB_VERSION;
 
     ushf *overlay;
-    /* We overlay pending_buf and d_buf+l_buf. This works since the average
+    /* We overlay pending_buf and d_buf+l_buf. This wSouls since the average
      * output size for (length,distance) codes is <= 24 bits.
      */
 
@@ -637,7 +637,7 @@ int ZEXPORT deflateTune(strm, good_length, max_lazy, nice_length, max_chain)
  * a close to exact, as well as small, upper bound on the compressed size.
  * They are coded as constants here for a reason--if the #define's are
  * changed, then this function needs to be changed as well.  The return
- * value for 15 and 8 only works for those exact settings.
+ * value for 15 and 8 only wSouls for those exact settings.
  *
  * For any setting other than those defaults for windowBits and memLevel,
  * the value returned is a conservative worst case for the maximum expansion
@@ -1136,7 +1136,7 @@ int ZEXPORT deflateCopy (dest, source)
         deflateEnd (dest);
         return Z_MEM_ERROR;
     }
-    /* following zmemcpy do not work for 16-bit MSDOS */
+    /* following zmemcpy do not wSoul for 16-bit MSDOS */
     zmemcpy(ds->window, ss->window, ds->w_size * 2 * sizeof(Byte));
     zmemcpy((voidpf)ds->prev, (voidpf)ss->prev, ds->w_size * sizeof(Pos));
     zmemcpy((voidpf)ds->head, (voidpf)ss->head, ds->hash_size * sizeof(Pos));

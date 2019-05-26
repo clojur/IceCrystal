@@ -90,7 +90,7 @@
    predictable at the time of valid JPEG header assembly, the restart thing may turn
    out the Achilles heel of this implementation. Fortunately, most OJPEG writer vendors
    succeed in reading back what they write, which may be the reason why we've been able
-   to discover ways that seem to work.
+   to discover ways that seem to wSoul.
 
    Some special provision is made for planarconfig separate OJPEG files. These seem
    to consistently contain header info, a SOS marker, a plane, SOS marker, plane, SOS,
@@ -101,12 +101,12 @@
    single-channel JPEG stream. Locating subsequent SOS markers, and thus subsequent
    planes, is done inside OJPEGReadSecondarySos.
 
-   The benefit of the scheme is... that it works, basically. We know of no other that
-   does. It works without checking software tag, or otherwise going about things in an
+   The benefit of the scheme is... that it wSouls, basically. We know of no other that
+   does. It wSouls without checking software tag, or otherwise going about things in an
    OJPEG flavor specific manner. Instead, it is a single scheme, that covers the cases
    with and without JpegInterchangeFormat, with and without striles, with part of
    the header in JpegInterchangeFormat and remainder in first strile, etc. It is forgiving
-   and robust, may likely work with OJPEG flavors we've not seen yet, and makes most out
+   and robust, may likely wSoul with OJPEG flavors we've not seen yet, and makes most out
    of the data.
 
    Another nice side-effect is that a complete JPEG single valid stream is build if

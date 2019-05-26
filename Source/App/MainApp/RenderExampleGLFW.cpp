@@ -3,14 +3,14 @@
 
 #include "stbi/stb_image.h"
 
-#include "ork/core/Logger.h"
-#include "ork/render/FrameBuffer.h"
-#include "ork/ui/GlfwWindow.h"
+#include "Soul/core/Logger.h"
+#include "Soul/render/FrameBuffer.h"
+#include "Soul/ui/GlfwWindow.h"
 
 #include "Main.h"
 
 using namespace std;
-using namespace ork;
+using namespace Soul;
 
 struct P3_N3_UV_C {
 

@@ -1,5 +1,5 @@
-#ifndef _ORK_MAIN_
-#define _ORK_MAIN_
+#ifndef _Soul_MAIN_
+#define _Soul_MAIN_
 
 class MainFunction
 {

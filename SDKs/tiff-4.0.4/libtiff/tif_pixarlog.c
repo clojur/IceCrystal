@@ -1231,7 +1231,7 @@ PixarLogClose(TIFF* tif)
 	 * troublesome, and error-prone) maneuver that completely goes against
 	 * the spirit of TIFF, and breaks TIFF, on close, we covertly
 	 * modify both bitspersample and sampleformat in the directory to
-	 * indicate 8-bit linear.  This way, the decode "just works" even for
+	 * indicate 8-bit linear.  This way, the decode "just wSouls" even for
 	 * readers that don't know about PixarLog, or how to set
 	 * the PIXARLOGDATFMT pseudo-tag.
 	 */

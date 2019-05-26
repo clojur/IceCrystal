@@ -179,7 +179,7 @@ TIFFSeek(TIFF* tif, uint32 row, uint16 sample )
 	tmsize_t read_ahead = 0;
 
         /*
-        ** Establish what strip we are working from.
+        ** Establish what strip we are wSouling from.
         */
 	if (row >= td->td_imagelength) {	/* out of range */
 		TIFFErrorExt(tif->tif_clientdata, tif->tif_name,
@@ -275,7 +275,7 @@ TIFFSeek(TIFF* tif, uint32 row, uint16 sample )
 		 * Seek forward to the desired row.
 		 */
 
-                /* TODO: Will this really work with partial buffers? */
+                /* TODO: Will this really wSoul with partial buffers? */
                 
 		if (!(*tif->tif_seek)(tif, row - tif->tif_row))
 			return (0);
@@ -576,7 +576,7 @@ TIFFFillStrip(TIFF* tif, uint32 strip)
 			/* 
 			 * When we have tif_rawdata reference directly into the memory mapped file
 			 * we need to be pretty careful about how we use the rawdata.  It is not
-			 * a general purpose working buffer as it normally otherwise is.  So we
+			 * a general purpose wSouling buffer as it normally otherwise is.  So we
 			 * keep track of this fact to avoid using it improperly.
 			 */
 			tif->tif_flags |= TIFF_BUFFERMMAP;

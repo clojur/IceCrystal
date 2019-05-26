@@ -9,11 +9,11 @@ set(pThreadLib ${PROJECT_SOURCE_DIR}/SDKs/pthread/lib/${CMAKE_BUILD_TYPE}/pthrea
 
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-	set(orkLib  ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/orkd.dll)
-	set(prolandLib  ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/Prolandd.dll)
+	set(SoulLib  ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/Sould.dll)
+	set(LargescaleSceneLib  ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/LargescaleScened.dll)
 else()
-     set(orkLib  ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/ork.dll)
-	 set(prolandLib  ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/Proland.dll)
+     set(SoulLib  ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/Soul.dll)
+	 set(LargescaleSceneLib  ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/LargescaleScene.dll)
 endif()
 
 set(OutDir ${EXECUTABLE_OUTPUT_PATH}/${CMAKE_BUILD_TYPE})
@@ -24,14 +24,13 @@ add_custom_command(OUTPUT  COPY_RES
   COMMAND ${CMAKE_COMMAND} -E copy ${GLuLib} ${OutDir}
   COMMAND ${CMAKE_COMMAND} -E copy ${openglLib} ${OutDir}
   COMMAND ${CMAKE_COMMAND} -E copy ${pThreadLib} ${OutDir}
-  COMMAND ${CMAKE_COMMAND} -E copy ${orkLib} ${OutDir}
-  COMMAND ${CMAKE_COMMAND} -E copy ${prolandLib} ${OutDir}
+  COMMAND ${CMAKE_COMMAND} -E copy ${SoulLib} ${OutDir}
+  COMMAND ${CMAKE_COMMAND} -E copy ${LargescaleSceneLib} ${OutDir}
 )
 
 add_custom_target(CopyTask ALL DEPENDS COPY_RES)
 
-add_subdirectory(OrkRender)
+add_subdirectory(Engine)
 add_subdirectory(App)
-add_subdirectory(Proland)
 
 set_property(TARGET ${LibName} PROPERTY FOLDER "CMakePredefinedTargets")

@@ -63,13 +63,13 @@ int mainFunction(int argc, char* argv[])
 //{
 //
 //#ifdef WIN32
-//	/*set current work path*/
+//	/*set current wSoul path*/
 //	char strPath[MAX_PATH] = {};
 //	GetModuleFileName(NULL, strPath, MAX_PATH);
-//	std::string workDir(strPath);
-//	int n = workDir.rfind('\\');
-//	workDir.erase(n, workDir.size() - n);
-//	SetCurrentDirectory(workDir.c_str());
+//	std::string wSoulDir(strPath);
+//	int n = wSoulDir.rfind('\\');
+//	wSoulDir.erase(n, wSoulDir.size() - n);
+//	SetCurrentDirectory(wSoulDir.c_str());
 //
 //
 //	//强行指定运行程序名和资源目录

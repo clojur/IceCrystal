@@ -2,25 +2,26 @@ set(EXENAME App)
 
 set(SourceDir ${PROJECT_SOURCE_DIR}/Source)
 
-#外部库目录
+
 include_directories(
 	${SOURCE_DIR}
-	${SourceDir}/OrkRender/libraries
-	${SourceDir}/OrkRender
-	${SourceDir}/Proland
-	${SourceDir}/Proland/common
+	${SOURCE_DIR}/Engine
+	${SourceDir}/Engine/Renderer/libraries
+	${SourceDir}/Engine/Renderer
+	${SourceDir}/Engine/LargescaleScene
+	${SourceDir}/Engine/LargescaleScene/common
 	${PROJECT_SOURCE_DIR}/SDKs/AntTweakBar/include
 	${PROJECT_SOURCE_DIR}/SDKs/glew/include
 	${PROJECT_SOURCE_DIR}/SDKs/GLFW/include
 )
 
-#预处理定义
+
 add_definitions(
 "-D DISABLE_MSVC_WARNINGS"
 "-D _CRT_SECURE_NO_WARNINGS"
 )
 
-#资源文件
+
 file(GLOB MeshFiles ResourceFiles/meshes/*.*)
 file(GLOB MethodsFiles ResourceFiles/methods/*.*)
 file(GLOB ScenesFiles ResourceFiles/scenes/*.*)
@@ -28,7 +29,6 @@ file(GLOB ShadersFiles ResourceFiles/shaders/*.*)
 file(GLOB TexturesFiles ResourceFiles/textures/*.*)
 
 
-#源文件
 list(APPEND 
 MainAppSource
 
@@ -42,15 +42,16 @@ MainAppSource
 )
 
 list(APPEND
-ProlandSource
- ProlandApp/examples/core/Core.cpp
- ProlandApp/examples/forest/trees1/Trees1.cpp
+LargescaleSceneSource
+	LargescaleSceneApp/examples/core/Core.cpp
+	LargescaleSceneApp/examples/forest/trees1/Trees1.cpp
+	LargescaleSceneApp/examples/ocean/ocean1/ocean1.cpp
+	LargescaleSceneApp/examples/ocean/ocean2/ocean2.cpp
 )
 
 
-#筛选器
 source_group(MainApp FILES ${MainAppSource})
-Source_group(ProlandApp FILES ${ProlandSource})
+Source_group(LargescaleSceneApp FILES ${LargescaleSceneSource})
 source_group(ResourceFiles\\meshes FILES ${MeshFiles})
 source_group(ResourceFiles\\methods FILES ${MethodsFiles})
 source_group(ResourceFiles\\scenes FILES ${ScenesFiles})
@@ -63,7 +64,7 @@ add_definitions(
 
 add_executable(${EXENAME}
 	${MainAppSource}
-	${ProlandSource}
+	${LargescaleSceneSource}
 	${MeshFiles}
 	${MethodsFiles}
 	${ScenesFiles}
@@ -72,9 +73,9 @@ add_executable(${EXENAME}
 )
 
 if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-	set(ExternLib orkd prolandd)
+	set(ExternLib Sould LargescaleScened)
 else()
-	set(ExternLib ork proland)
+	set(ExternLib Soul LargescaleScene)
 endif()
 
 #Added whole archive due to the "plug-in usage"

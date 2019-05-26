@@ -13,7 +13,7 @@
 #include "TwMgr.h"
 #include "TwColors.h"
 
-#include "d3d10vs2003.h" // Workaround to include D3D10.h with VS2003
+#include "d3d10vs2003.h" // WSoularound to include D3D10.h with VS2003
 #define D3D10_IGNORE_SDK_LAYERS // d3d10sdklayers.h may not exist
 #include <d3d10.h>
 

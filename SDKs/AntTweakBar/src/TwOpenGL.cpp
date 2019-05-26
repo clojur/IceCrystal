@@ -324,7 +324,7 @@ void CTwGraphOpenGL::BeginDraw(int _WndWidth, int _WndHeight)
         _glViewport(Vp[0], Vp[1], Vp[2], Vp[3]);
     }
     _glLoadIdentity();
-    //_glOrtho(Vp[0], Vp[0]+Vp[2]-1, Vp[1]+Vp[3]-1, Vp[1], -1, 1); // Doesn't work
+    //_glOrtho(Vp[0], Vp[0]+Vp[2]-1, Vp[1]+Vp[3]-1, Vp[1], -1, 1); // Doesn't wSoul
     _glOrtho(Vp[0], Vp[0]+Vp[2], Vp[1]+Vp[3], Vp[1], -1, 1);
     */
     if( _WndWidth>0 && _WndHeight>0 )

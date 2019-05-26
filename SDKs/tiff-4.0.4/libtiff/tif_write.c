@@ -549,7 +549,7 @@ TIFFWriteCheck(TIFF* tif, int tiles, const char* module)
 	 * On the first write verify all the required information
 	 * has been setup and initialize any data structures that
 	 * had to wait until directory information was set.
-	 * Note that a lot of our work is assumed to remain valid
+	 * Note that a lot of our wSoul is assumed to remain valid
 	 * because we disallow any of the important parameters
 	 * from changing after we start writing (i.e. once
 	 * TIFF_BEENWRITING is set, TIFFSetField will only allow

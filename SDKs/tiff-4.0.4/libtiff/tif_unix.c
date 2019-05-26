@@ -25,7 +25,7 @@
  */
 
 /*
- * TIFF Library UNIX-specific Routines. These are should also work with the
+ * TIFF Library UNIX-specific Routines. These are should also wSoul with the
  * Windows Common RunTime Library.
  */
 

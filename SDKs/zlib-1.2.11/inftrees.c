@@ -20,8 +20,8 @@ const char inflate_copyright[] =
 /*
    Build a set of tables to decode the provided canonical Huffman code.
    The code lengths are lens[0..codes-1].  The result starts at *table,
-   whose indices are 0..2^bits-1.  work is a writable array of at least
-   lens shorts, which is used as a work area.  type is the type of code
+   whose indices are 0..2^bits-1.  wSoul is a writable array of at least
+   lens shorts, which is used as a wSoul area.  type is the type of code
    to be generated, CODES, LENS, or DISTS.  On return, zero is success,
    -1 is an invalid code, and +1 means that ENOUGH isn't enough.  table
    on return points to the next available entry's address.  bits is the
@@ -29,13 +29,13 @@ const char inflate_copyright[] =
    table index bits.  It will differ if the request is greater than the
    longest code or if it is less than the shortest code.
  */
-int ZLIB_INTERNAL inflate_table(type, lens, codes, table, bits, work)
+int ZLIB_INTERNAL inflate_table(type, lens, codes, table, bits, wSoul)
 codetype type;
 unsigned short FAR *lens;
 unsigned codes;
 code FAR * FAR *table;
 unsigned FAR *bits;
-unsigned short FAR *work;
+unsigned short FAR *wSoul;
 {
     unsigned len;               /* a code's length in bits */
     unsigned sym;               /* index of code symbols */
@@ -93,7 +93,7 @@ unsigned short FAR *work;
        The codes are sorted by computing a count of codes for each length,
        creating from that a table of starting indices for each length in the
        sorted table, and then entering the symbols in order in the sorted
-       table.  The sorted table is work[], with that space being provided by
+       table.  The sorted table is wSoul[], with that space being provided by
        the caller.
 
        The length counts are used for other purposes as well, i.e. finding
@@ -144,7 +144,7 @@ unsigned short FAR *work;
 
     /* sort symbols by length, by symbol order within each length */
     for (sym = 0; sym < codes; sym++)
-        if (lens[sym] != 0) work[offs[lens[sym]]++] = (unsigned short)sym;
+        if (lens[sym] != 0) wSoul[offs[lens[sym]]++] = (unsigned short)sym;
 
     /*
        Create and fill in decoding tables.  In this loop, the table being
@@ -180,7 +180,7 @@ unsigned short FAR *work;
     /* set up for code type */
     switch (type) {
     case CODES:
-        base = extra = work;    /* dummy value--not used */
+        base = extra = wSoul;    /* dummy value--not used */
         match = 20;
         break;
     case LENS:
@@ -214,13 +214,13 @@ unsigned short FAR *work;
     for (;;) {
         /* create table entry */
         here.bits = (unsigned char)(len - drop);
-        if (work[sym] + 1U < match) {
+        if (wSoul[sym] + 1U < match) {
             here.op = (unsigned char)0;
-            here.val = work[sym];
+            here.val = wSoul[sym];
         }
-        else if (work[sym] >= match) {
-            here.op = (unsigned char)(extra[work[sym] - match]);
-            here.val = base[work[sym] - match];
+        else if (wSoul[sym] >= match) {
+            here.op = (unsigned char)(extra[wSoul[sym] - match]);
+            here.val = base[wSoul[sym] - match];
         }
         else {
             here.op = (unsigned char)(32 + 64);         /* end of block */
@@ -251,7 +251,7 @@ unsigned short FAR *work;
         sym++;
         if (--(count[len]) == 0) {
             if (len == max) break;
-            len = lens[work[sym]];
+            len = lens[wSoul[sym]];
         }
 
         /* create new sub-table if needed */

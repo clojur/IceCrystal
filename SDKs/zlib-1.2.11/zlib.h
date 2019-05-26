@@ -1199,7 +1199,7 @@ ZEXTERN uLong ZEXPORT zlibCompileFlags OF((void));
      18-19: 0 (reserved)
 
     Operation variations (changes in library functionality):
-     20: PKZIP_BUG_WORKAROUND -- slightly more permissive inflate
+     20: PKZIP_BUG_WSoulAROUND -- slightly more permissive inflate
      21: FASTEST -- deflate algorithm with only one, lowest compression level
      22,23: 0 (reserved)
 

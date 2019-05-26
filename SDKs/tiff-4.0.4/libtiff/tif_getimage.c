@@ -286,7 +286,7 @@ TIFFRGBAImageBegin(TIFFRGBAImage* img, TIFF* tif, int stop, char emsg[1024])
 	if (extrasamples >= 1)
 	{
 		switch (sampleinfo[0]) {
-			case EXTRASAMPLE_UNSPECIFIED:          /* Workaround for some images without */
+			case EXTRASAMPLE_UNSPECIFIED:          /* WSoularound for some images without */
 				if (img->samplesperpixel > 3)  /* correct info about alpha channel */
 					img->alpha = EXTRASAMPLE_ASSOCALPHA;
 				break;

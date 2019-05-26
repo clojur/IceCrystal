@@ -79,7 +79,7 @@ uLong ZEXPORT zlibCompileFlags()
 #ifdef NO_GZIP
     flags += 1L << 17;
 #endif
-#ifdef PKZIP_BUG_WORKAROUND
+#ifdef PKZIP_BUG_WSoulAROUND
     flags += 1L << 20;
 #endif
 #ifdef FASTEST
@@ -210,7 +210,7 @@ local ptr_table table[MAX_PTR];
 /* This table is used to remember the original form of pointers
  * to large buffers (64K). Such pointers are normalized with a zero offset.
  * Since MSDOS is not a preemptive multitasking OS, this table is not
- * protected from concurrent access. This hack doesn't work anyway on
+ * protected from concurrent access. This hack doesn't wSoul anyway on
  * a protected system like OS/2. Use Microsoft C instead.
  */
 

@@ -2,9 +2,9 @@
 #define _WindowsApplication_H
 
 #include"Application.h"
-#include <ork/core/Logger.h>
-#include <ork/common/RenderContext.h>
-#include <ork/render/FrameBuffer.h>
+#include <Soul/core/Logger.h>
+#include <Soul/common/RenderContext.h>
+#include <Soul/render/FrameBuffer.h>
 namespace Soul
 {
 	class WindowsApplication :public Application
@@ -12,8 +12,8 @@ namespace Soul
 	public:
 		HWND _hWnd;
 		RenderContext _context;
-		ork::ptr<ork::Mesh<ork::vec2f, unsigned int>> _mesh;
-		ork::ptr<ork::Program> _program;
+		Soul::ptr<Soul::Mesh<Soul::vec2f, unsigned int>> _mesh;
+		Soul::ptr<Soul::Program> _program;
 	public:
 		WindowsApplication();
 	public:
@@ -32,7 +32,7 @@ namespace Soul
 	protected:
 		static LRESULT CALLBACK wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
-		ork::ptr<ork::FrameBuffer> _fb;
+		Soul::ptr<Soul::FrameBuffer> _fb;
 		int _width;
 		int _height;
 	};

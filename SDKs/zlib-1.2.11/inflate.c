@@ -297,14 +297,14 @@ struct inflate_state FAR *state;
         next = fixed;
         lenfix = next;
         bits = 9;
-        inflate_table(LENS, state->lens, 288, &(next), &(bits), state->work);
+        inflate_table(LENS, state->lens, 288, &(next), &(bits), state->wSoul);
 
         /* distance table */
         sym = 0;
         while (sym < 32) state->lens[sym++] = 5;
         distfix = next;
         bits = 5;
-        inflate_table(DISTS, state->lens, 32, &(next), &(bits), state->work);
+        inflate_table(DISTS, state->lens, 32, &(next), &(bits), state->wSoul);
 
         /* do this just once */
         virgin = 0;
@@ -925,7 +925,7 @@ int flush;
             DROPBITS(5);
             state->ncode = BITS(4) + 4;
             DROPBITS(4);
-#ifndef PKZIP_BUG_WORKAROUND
+#ifndef PKZIP_BUG_WSoulAROUND
             if (state->nlen > 286 || state->ndist > 30) {
                 strm->msg = (char *)"too many length or distance symbols";
                 state->mode = BAD;
@@ -947,7 +947,7 @@ int flush;
             state->lencode = (const code FAR *)(state->next);
             state->lenbits = 7;
             ret = inflate_table(CODES, state->lens, 19, &(state->next),
-                                &(state->lenbits), state->work);
+                                &(state->lenbits), state->wSoul);
             if (ret) {
                 strm->msg = (char *)"invalid code lengths set";
                 state->mode = BAD;
@@ -1021,7 +1021,7 @@ int flush;
             state->lencode = (const code FAR *)(state->next);
             state->lenbits = 9;
             ret = inflate_table(LENS, state->lens, state->nlen, &(state->next),
-                                &(state->lenbits), state->work);
+                                &(state->lenbits), state->wSoul);
             if (ret) {
                 strm->msg = (char *)"invalid literal/lengths set";
                 state->mode = BAD;
@@ -1030,7 +1030,7 @@ int flush;
             state->distcode = (const code FAR *)(state->next);
             state->distbits = 6;
             ret = inflate_table(DISTS, state->lens + state->nlen, state->ndist,
-                            &(state->next), &(state->distbits), state->work);
+                            &(state->next), &(state->distbits), state->wSoul);
             if (ret) {
                 strm->msg = (char *)"invalid distances set";
                 state->mode = BAD;

@@ -134,9 +134,9 @@ NotConfigured(TIFF* tif, int scheme)
 /************************************************************************/
 
 /**
- * Check whether we have working codec for the specific coding scheme.
+ * Check whether we have wSouling codec for the specific coding scheme.
  *
- * @return returns 1 if the codec is configured and working. Otherwise
+ * @return returns 1 if the codec is configured and wSouling. Otherwise
  * 0 will be returned.
  */
 
