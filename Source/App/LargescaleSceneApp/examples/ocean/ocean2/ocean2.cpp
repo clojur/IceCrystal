@@ -228,9 +228,9 @@ public:
     }
 };
 
-extern const char Ocean2Res[] = "Ocean2";
+extern const char oceanTwo[] = "oceanTwo";
 
-static ResourceFactory::Type<Ocean2Res, Ocean2Resource> Ocean2Type;
+static ResourceFactory::Type<oceanTwo, Ocean2Resource> Ocean2Type;
 
 static_ptr<Window> appOcean2;
 

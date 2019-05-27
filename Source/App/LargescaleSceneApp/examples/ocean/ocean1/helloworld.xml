@@ -151,6 +151,6 @@
         <editor id="scene" bar="editScene" exclusive="false"/>
     </tweakBarManager>
 
-    <helloworld name="window" ui="tweakBar" view="viewHandler" radius="6360000"/>
+    <ocaenOne name="window" ui="tweakBar" view="viewHandler" radius="6360000"/>
 
 </archive>

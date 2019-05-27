@@ -55,6 +55,10 @@ MakeGroup(plants)
 
 MakeGroup(preprocess)
 MakeSubGroup(preprocess atmo)
+
+MakeGroup(ocean)
+
+
 list(APPEND
 	common
 	common/LargescaleSceneMacro.h
@@ -137,6 +141,7 @@ add_library(${LibName} SHARED
   ${pluginFiles}
   ${plantsFiles}
   ${preprocess_atmoFiles}
+  ${oceanFiles}
 )
 
 if(WIN32)
