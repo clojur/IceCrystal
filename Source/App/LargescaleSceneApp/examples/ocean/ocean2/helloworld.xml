@@ -24,7 +24,7 @@
 -->
 <?xml version="1.0" ?>
 <archive>
-    <multithreadScheduler name="defaultScheduler" nthreads="3" fps="0"/>
+    <multithreadScheduler name="defaultScheduler" nthreads="7" fps="0"/>
 
     <sequence name="cameraMethod">
         <setTransforms module="globalsShader" worldPos="worldCameraPos"/>
@@ -159,6 +159,5 @@
         <editor id="scene" bar="editScene" exclusive="false"/>
     </tweakBarManager>
 
-    <oceanTwo name="window" ui="tweakBar" view="viewHandler" radius="6360000"/>
-
+    <oceanTwo name="window"  ui="tweakBar"view="viewHandler" radius="6360000"/>
 </archive>

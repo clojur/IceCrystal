@@ -1,3 +1,9 @@
+.vscode
+*.raw
 build
 x86
 x64
+*.exe
+*.dll
+*.bat
+
