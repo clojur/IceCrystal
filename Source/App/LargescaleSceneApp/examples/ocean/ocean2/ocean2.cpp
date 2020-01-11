@@ -253,11 +253,11 @@ void initOcean2()
 	appOcean2 = resManager->loadResource("window").cast<Window>();
 }
 
-int main(int argc, char* argv[])
-{
-    initOceanPlugin();
-    atexit(Object::exit);
-	initOcean2();
-	appOcean2->start();
-    return 0;
-}
+//int main(int argc, char* argv[])
+//{
+//    initOceanPlugin();
+//    atexit(Object::exit);
+//	initOcean2();
+//	appOcean2->start();
+//    return 0;
+//}
