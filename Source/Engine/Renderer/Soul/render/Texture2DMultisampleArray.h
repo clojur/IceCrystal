@@ -17,7 +17,7 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA.
  */
 /*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
+ * Authors:jiangsi.
  */
 
 #ifndef _Soul_TEXTURE_2D_MULTISAMPLE_ARRAY_H_

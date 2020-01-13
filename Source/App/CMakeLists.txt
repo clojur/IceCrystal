@@ -6,13 +6,14 @@ set(SourceDir ${PROJECT_SOURCE_DIR}/Source)
 include_directories(
 	${SOURCE_DIR}
 	${SOURCE_DIR}/Engine
+	${SOURCE_DIR}/Engine/Renderer
 	${SourceDir}/Engine/Renderer/libraries
-	${SourceDir}/Engine/Renderer
 	${SourceDir}/Engine/LargescaleScene
 	${SourceDir}/Engine/LargescaleScene/common
 	${PROJECT_SOURCE_DIR}/SDKs/AntTweakBar/include
 	${PROJECT_SOURCE_DIR}/SDKs/glew/include
 	${PROJECT_SOURCE_DIR}/SDKs/GLFW/include
+	${PROJECT_SOURCE_DIR}/SDKs/tiff-4.0.4/libtiff
 )
 
 
@@ -43,6 +44,7 @@ MainAppSource
 
 list(APPEND
 LargescaleSceneSource
+	LargescaleSceneApp/examples/EarthDemo.cpp
 	LargescaleSceneApp/examples/core/Core.cpp
 	LargescaleSceneApp/examples/forest/trees1/Trees1.cpp
 	LargescaleSceneApp/examples/ocean/ocean1/ocean1.cpp
@@ -73,9 +75,9 @@ add_executable(${EXENAME}
 )
 
 if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-	set(ExternLib Sould LargescaleScened)
+	set(ExternLib Sould LargescaleScened tiffd zlibd)
 else()
-	set(ExternLib Soul LargescaleScene)
+	set(ExternLib Soul LargescaleScene tiff zlib)
 endif()
 
 #Added whole archive due to the "plug-in usage"

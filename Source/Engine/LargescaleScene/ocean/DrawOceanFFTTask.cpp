@@ -1,5 +1,5 @@
 /*
- * Proland: a procedural landscape rendering library.
+ * LargescaleScene: a procedural landscape rendering library.
  * Copyright (c) 2008-2011 INRIA
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,12 +17,12 @@
  */
 
 /*
- * Proland is distributed under a dual-license scheme.
+ * LargescaleScene is distributed under a dual-license scheme.
  * You can obtain a specific license from Inria: LargescaleScene-licensing@inria.fr.
  */
 
 /*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
+ * Authors:jiangsi.
  */
 
 #include "LargescaleScene/ocean/DrawOceanFFTTask.h"

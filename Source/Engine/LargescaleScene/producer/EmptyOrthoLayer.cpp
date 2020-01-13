@@ -22,7 +22,7 @@
  */
 
 /*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
+ * Authors:jiangsi.
  */
 
 #include "EmptyOrthoLayer.h"

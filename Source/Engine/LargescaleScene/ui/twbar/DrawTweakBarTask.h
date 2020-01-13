@@ -22,7 +22,7 @@
  */
 
 /*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
+ * Authors:jiangsi.
  */
 
 #ifndef _LargescaleScene_DRAW_TWEAK_BAR_TASK_H_

@@ -22,7 +22,7 @@
  */
 
 /*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
+ * Authors:jiangsi.
  */
 
 #ifndef _LargescaleScene_CYLINDER_VIEW_CONTROLLER_H_

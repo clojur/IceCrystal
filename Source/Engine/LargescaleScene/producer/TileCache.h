@@ -22,7 +22,7 @@
  */
 
 /*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
+ * Authors:jiangsi.
  */
 
 #ifndef _LargescaleScene_TILE_CACHE_H_

@@ -22,7 +22,7 @@
  */
 
 /*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
+ * Authors:jiangsi.
  */
 
 #ifndef _LargescaleScene_ORTHO_GPU_PRODUCER_H_

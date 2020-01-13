@@ -34,6 +34,16 @@ macro(MakeSubGroup parentPath myName )
 	source_group(${parentPath}\\${myName} FILES ${${parentPath}_${myName}Files})
 endmacro()
 
+macro(MakeSubSubGroup FirstPath SecondPath myPath )
+	file(GLOB 
+		CodeFiles
+		${FirstPath}/${SecondPath}/${myPath}/*.h 
+		${FirstPath}/${SecondPath}/${myPath}/*.cpp
+	)
+	set(${FirstPath}_${SecondPath}_${myPath}Files ${CodeFiles})
+	source_group(${FirstPath}\\${SecondPath}\\${myPath} FILES ${${FirstPath}_${SecondPath}_${myPath}Files})
+endmacro()
+
 MakeGroup(math)
 
 MakeGroup(particles)
@@ -58,6 +68,17 @@ MakeSubGroup(preprocess atmo)
 
 MakeGroup(ocean)
 
+MakeGroup(edit)
+
+MakeGroup(graph)
+MakeSubGroup(graph graph)
+MakeSubSubGroup(graph graph producer)
+MakeSubGroup(graph ortho)
+MakeSubGroup(graph dem)
+
+MakeGroup(rivers)
+MakeSubGroup(rivers graph)
+
 
 list(APPEND
 	common
@@ -65,7 +86,6 @@ list(APPEND
 )
 set(commonFiles ${common})
 source_group(common FILES ${commonFiles})
-
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 	set(ExternLib  
@@ -133,6 +153,13 @@ add_library(${LibName} SHARED
   ${particlesFiles}
   ${particles_screenFiles}
   ${particles_terrainFiles}
+  ${graphFiles}
+  ${graph_graphFiles}
+  ${graph_graph_producerFiles}
+  ${graph_demFiles}
+  ${graph_orthoFiles}
+  ${riversFiles}
+  ${rivers_graphFiles}
   ${ui_twbarFiles}
   ${producerFiles}
   ${terrainFiles}
@@ -142,6 +169,7 @@ add_library(${LibName} SHARED
   ${plantsFiles}
   ${preprocess_atmoFiles}
   ${oceanFiles}
+  ${editFiles}
 )
 
 if(WIN32)

@@ -43,7 +43,7 @@
 #define _Soul_MAT2_H_
 
 #include <string.h>
-#include "common/pmath.h"
+#include "Soul/common/pmath.h"
 #include "Soul/math/vec2.h"
 #include "Soul/math/box2.h"
 

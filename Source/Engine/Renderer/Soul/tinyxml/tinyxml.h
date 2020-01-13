@@ -32,7 +32,7 @@ distribution.
 #pragma warning( disable : 4786 )
 #endif
 
-#include "common/SoulMacro.h"
+#include "Soul/common/SoulMacro.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>

@@ -22,7 +22,7 @@
  */
 
 /*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
+ * Authors:jiangsi.
  */
 
 #include "Soul/core/FileLogger.h"
@@ -252,11 +252,11 @@ void initOcean1()
 	appOcean1 = resManager->loadResource("window").cast<Window>();
 }
 //
-int main(int argc, char* argv[])
-{
-    initOceanPlugin();
-    atexit(Object::exit);
-    initOcean1();
-    appOcean1->start();
-    return 0;
-}
+//int main(int argc, char* argv[])
+//{
+//    initOceanPlugin();
+//    atexit(Object::exit);
+//    initOcean1();
+//    appOcean1->start();
+//    return 0;
+//}

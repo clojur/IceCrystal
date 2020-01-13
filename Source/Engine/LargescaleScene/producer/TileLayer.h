@@ -22,7 +22,7 @@
  */
 
 /*
- * Authors: Eric Bruneton, Antoine Begault, Guillaume Piolat.
+ * Authors:jiangsi.
  */
 
 #ifndef _LargescaleScene_TILELAYER_H_
@@ -32,6 +32,7 @@
 #include "Soul/math/vec3.h"
 #include "Soul/taskgraph/Scheduler.h"
 #include "Soul/taskgraph/TaskGraph.h"
+#include "LargescaleScene/common/LargescaleSceneMacro.h"
 #include "LargescaleScene/producer/TileCache.h"
 
 using namespace Soul;
