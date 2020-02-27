@@ -1,29 +1,4 @@
-/*
- * LargescaleScene: a procedural landscape rendering library.
- * Copyright (c) 2008-2011 INRIA
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 
-/*
- * LargescaleScene is distributed under a dual-license scheme.
- * You can obtain a specific license from Inria: LargescaleScene-licensing@inria.fr.
- */
-
-/*
- * Authors:jiangsi.
- */
 
 #ifndef _LargescaleScene_TERRAIN_NODE_H_
 #define _LargescaleScene_TERRAIN_NODE_H_
@@ -38,28 +13,7 @@ using namespace Soul;
 namespace LargescaleScene
 {
 
-/**
- * @defgroup terrain terrain
- * Provides a framewSoul to draw and update view-dependent, quadtree based terrains.
- * This framewSoul provides classes to represent the %terrain quadtree, classes to
- * associate data produced by LargescaleScene::TileProducer to the quads of this
- * quadtree, as well as classes to update and draw such terrains (which can be
- * deformed to get spherical or cylindrical terrains).
- * @ingroup LargescaleScene
- */
 
-/**
- * A view dependent, quadtree based %terrain. This class provides access to the
- * %terrain quadtree, defines the %terrain deformation (can be used to get planet
- * sized terrains), and defines how the %terrain quadtree must be subdivided based
- * on the viewer position. This class does not give any direct or indirect access
- * to the %terrain data (elevations, normals, texture, etc). The %terrain data must
- * be managed by LargescaleScene::TileProducer, and stored in
- * LargescaleScene::TileStorage. The link between with the %terrain quadtree is
- * provided by the TileSampler class.
- * @ingroup terrain
- * @authors Eric Bruneton, Antoine Begault, Guillaume Piolat
- */
 class LargescaleScene_API  TerrainNode : public Object
 {
 public:

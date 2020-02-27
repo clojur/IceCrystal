@@ -96,8 +96,12 @@ void DrawTerrainTask::swap(ptr<DrawTerrainTask> t)
     std::swap(*this, *t);
 }
 
-DrawTerrainTask::Impl::Impl(ptr<SceneNode> n, ptr<TerrainNode> t, ptr<MeshBuffers> m, bool culling) :
-    Task("DrawTerrain", true, 0), n(n), t(t), m(m), culling(culling)
+DrawTerrainTask::Impl::Impl(ptr<SceneNode> pSceneNode, ptr<TerrainNode> pTerrainNode, ptr<MeshBuffers> pMeshBuffers, bool bCulling) :
+    Task("DrawTerrain", true, 0), 
+	_pSceneNode(pSceneNode),
+	_pTerrainNode(pTerrainNode),
+	_pMeshBuffers(pMeshBuffers),
+	_bCulling(bCulling)
 {
 }
 
@@ -107,14 +111,14 @@ DrawTerrainTask::Impl::~Impl()
 
 bool DrawTerrainTask::Impl::run()
 {
-    if (t != NULL) {
+    if (_pTerrainNode != NULL) {
         if (Logger::DEBUG_LOGGER != NULL) {
             Logger::DEBUG_LOGGER->log("TERRAIN", "DrawTerrain");
         }
         ptr<FrameBuffer> fb = SceneManager::getCurrentFrameBuffer();
-        async = false;
+        _bAsync = false;
         vector< ptr<TileSampler> > uniforms;
-        SceneNode::FieldIterator i = n->getFields();
+        SceneNode::FieldIterator i = _pSceneNode->getFields();
         while (i.hasNext()) {
             ptr<TileSampler> u = i.next().cast<TileSampler>();
             if (u != NULL) {
@@ -124,17 +128,17 @@ bool DrawTerrainTask::Impl::run()
                 if (u->getStoreLeaf() && u->getTerrain(0) == NULL) {
                     uniforms.push_back(u);
                     if (u->getAsync() && !u->getMipMap()) {
-                        async = true;
+                        _bAsync = true;
                     }
                 }
             }
         }
 
-        ptr<Program> p = SceneManager::getCurrentProgram();
-        t->deform->setUniforms(n, t, p);
-        if (async) {
+        ptr<Program> pShaderProgram = SceneManager::getCurrentProgram();
+        _pTerrainNode->deform->setUniforms(_pSceneNode, _pTerrainNode, pShaderProgram);
+        if (_bAsync) {
             int k = 0;
-            switch (m->mode) {
+            switch (_pMeshBuffers->mode) {
                 case TRIANGLES:
                     k = 6;
                     break;
@@ -149,41 +153,41 @@ bool DrawTerrainTask::Impl::run()
                     // unsupported formats
                     assert(false);
             }
-            int n = int(sqrt((double)m->nvertices)) - 1;
-            gridSize = (n / 2) * (n / 2) * k;
-            assert(m->nindices >= gridSize * 32);
+            int n = int(sqrt((double)_pMeshBuffers->nvertices)) - 1;
+            _iGridSize = (n / 2) * (n / 2) * k;
+            assert(_pMeshBuffers->nindices >= _iGridSize * 32);
 
-            findDrawableQuads(t->root, uniforms);
+            findDrawableQuads(_pTerrainNode->root, uniforms);
         }
-        drawQuad(t->root, uniforms);
+        drawQuad(_pTerrainNode->root, uniforms);
     }
     return true;
 }
 
-void DrawTerrainTask::Impl::findDrawableQuads(ptr<TerrainQuad> q, const vector< ptr<TileSampler> > &uniforms)
+void DrawTerrainTask::Impl::findDrawableQuads(ptr<TerrainQuad> pTerrainQuad, const std::vector< ptr<TileSampler> > &uniforms)
 {
-    q->drawable = false;
+	pTerrainQuad->drawable = false;
 
-    if (culling && q->visible == SceneManager::INVISIBLE) {
-        q->drawable = true;
+    if (_bCulling && pTerrainQuad->visible == SceneManager::INVISIBLE) {
+		pTerrainQuad->drawable = true;
         return;
     }
 
-    if (q->isLeaf()) {
+    if (pTerrainQuad->isLeaf()) {
         for (unsigned int i = 0; i < uniforms.size(); ++i) {
             if (!uniforms[i]->getAsync() || uniforms[i]->getMipMap()) {
                 continue;
             }
             ptr<TileProducer> p = uniforms[i]->get();
-            if (p->hasTile(q->level, q->tx, q->ty) && p->findTile(q->level, q->tx, q->ty) == NULL) {
+            if (p->hasTile(pTerrainQuad->level, pTerrainQuad->tx, pTerrainQuad->ty) && p->findTile(pTerrainQuad->level, pTerrainQuad->tx, pTerrainQuad->ty) == NULL) {
                 return;
             }
         }
     } else {
         int nDrawable = 0;
         for (int i = 0; i < 4; ++i) {
-            findDrawableQuads(q->children[i], uniforms);
-            if (q->children[i]->drawable) {
+            findDrawableQuads(pTerrainQuad->children[i], uniforms);
+            if (pTerrainQuad->children[i]->drawable) {
                 ++nDrawable;
             }
         }
@@ -193,47 +197,47 @@ void DrawTerrainTask::Impl::findDrawableQuads(ptr<TerrainQuad> q, const vector< 
                     continue;
                 }
                 ptr<TileProducer> p = uniforms[i]->get();
-                if (p->hasTile(q->level, q->tx, q->ty) && p->findTile(q->level, q->tx, q->ty) == NULL) {
+                if (p->hasTile(pTerrainQuad->level, pTerrainQuad->tx, pTerrainQuad->ty) && p->findTile(pTerrainQuad->level, pTerrainQuad->tx, pTerrainQuad->ty) == NULL) {
                     return;
                 }
             }
         }
     }
 
-    q->drawable = true;
+	pTerrainQuad->drawable = true;
 }
 
-void DrawTerrainTask::Impl::drawQuad(ptr<TerrainQuad> q, const vector< ptr<TileSampler> > &uniforms)
+void DrawTerrainTask::Impl::drawQuad(ptr<TerrainQuad> pTerrainQuad, const vector< ptr<TileSampler> > &uniforms)
 {
-    if (culling && q->visible == SceneManager::INVISIBLE) {
+    if (_bCulling && pTerrainQuad->visible == SceneManager::INVISIBLE) {
         return;
     }
-    if (async && !q->drawable) {
+    if (_bAsync && !pTerrainQuad->drawable) {
         return;
     }
 
     ptr<Program> p = SceneManager::getCurrentProgram();
-    if (q->isLeaf()) {
+    if (pTerrainQuad->isLeaf()) {
         for (unsigned int i = 0; i < uniforms.size(); ++i) {
-            uniforms[i]->setTile(q->level, q->tx, q->ty);
+            uniforms[i]->setTile(pTerrainQuad->level, pTerrainQuad->tx, pTerrainQuad->ty);
         }
-        t->deform->setUniforms(n, q, p);
-        if (async) {
-            SceneManager::getCurrentFrameBuffer()->draw(p, *m, m->mode, 0, gridSize * 4);
+        _pTerrainNode->deform->setUniforms(_pSceneNode, pTerrainQuad, p);
+        if (_bAsync) {
+            SceneManager::getCurrentFrameBuffer()->draw(p, *_pMeshBuffers, _pMeshBuffers->mode, 0, _iGridSize * 4);
         } else {
-            if (m->nindices == 0) {
-                SceneManager::getCurrentFrameBuffer()->draw(p, *m, m->mode, 0, m->nvertices);
+            if (_pMeshBuffers->nindices == 0) {
+                SceneManager::getCurrentFrameBuffer()->draw(p, *_pMeshBuffers, _pMeshBuffers->mode, 0, _pMeshBuffers->nvertices);
             } else {
-                SceneManager::getCurrentFrameBuffer()->draw(p, *m, m->mode, 0, m->nindices);
+                SceneManager::getCurrentFrameBuffer()->draw(p, *_pMeshBuffers, _pMeshBuffers->mode, 0, _pMeshBuffers->nindices);
             }
         }
     } else {
         int order[4];
-        double ox = t->getLocalCamera().x;
-        double oy = t->getLocalCamera().y;
+        double ox = _pTerrainNode->getLocalCamera().x;
+        double oy = _pTerrainNode->getLocalCamera().y;
 
-        double cx = q->ox + q->l / 2.0;
-        double cy = q->oy + q->l / 2.0;
+        double cx = pTerrainQuad->ox + pTerrainQuad->l / 2.0;
+        double cy = pTerrainQuad->oy + pTerrainQuad->l / 2.0;
         if (oy < cy) {
             if (ox < cx) {
                 order[0] = 0;
@@ -262,20 +266,20 @@ void DrawTerrainTask::Impl::drawQuad(ptr<TerrainQuad> q, const vector< ptr<TileS
 
         int done = 0;
         for (int i = 0; i < 4; ++i) {
-            if (culling && q->children[order[i]]->visible == SceneManager::INVISIBLE) {
+            if (_bCulling && pTerrainQuad->children[order[i]]->visible == SceneManager::INVISIBLE) {
                 done |= (1 << order[i]);
-            } else if (!async || q->children[order[i]]->drawable) {
-                drawQuad(q->children[order[i]], uniforms);
+            } else if (!_bCulling || pTerrainQuad->children[order[i]]->drawable) {
+                drawQuad(pTerrainQuad->children[order[i]], uniforms);
                 done |= (1 << order[i]);
             }
         }
         if (done < 15) {
             int sizes[16] = { 0, 4, 7, 10, 12, 15, 17, 19, 20, 23, 25, 27, 28, 30, 31, 32 };
             for (unsigned int i = 0; i < uniforms.size(); ++i) {
-                uniforms[i]->setTile(q->level, q->tx, q->ty);
+                uniforms[i]->setTile(pTerrainQuad->level, pTerrainQuad->tx, pTerrainQuad->ty);
             }
-            t->deform->setUniforms(n, q, p);
-            SceneManager::getCurrentFrameBuffer()->draw(p, *m, m->mode, gridSize * sizes[done], gridSize * (sizes[done+1] - sizes[done]));
+            _pTerrainNode->deform->setUniforms(_pSceneNode,pTerrainQuad, p);
+            SceneManager::getCurrentFrameBuffer()->draw(p, *_pMeshBuffers, _pMeshBuffers->mode, _iGridSize * sizes[done], _iGridSize * (sizes[done+1] - sizes[done]));
         }
     }
 }

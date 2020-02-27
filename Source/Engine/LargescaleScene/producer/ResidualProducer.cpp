@@ -50,7 +50,7 @@ namespace LargescaleScene
 
 #define MAX_TILE_SIZE 256
 
-void *ResidualProducer::key = NULL;
+void *ResidualProducer::_key = NULL;
 
 void residualDelete(void* data)
 {
@@ -70,56 +70,56 @@ ResidualProducer::ResidualProducer() : TileProducer("ResidualProducer", "CreateR
 void ResidualProducer::init(ptr<TileCache> cache, const char *name, int deltaLevel, float zscale)
 {
     TileProducer::init(cache, false);
-    this->name = name;
+    this->_name = name;
 
     if (strlen(name) == 0) {
-        this->tileFile = NULL;
-        this->minLevel = 0;
-        this->maxLevel = 32;
-        this->rootLevel = 0;
-        this->deltaLevel = 0;
-        this->rootTx = 0;
-        this->rootTy = 0;
-        this->scale = 1.0;
+        this->_tileFile = NULL;
+        this->_minLevel = 0;
+        this->_maxLevel = 32;
+        this->_rootLevel = 0;
+        this->_deltaLevel = 0;
+        this->_rootTx = 0;
+        this->_rootTy = 0;
+        this->_scale = 1.0;
     } else {
-        fopen(&tileFile, name, "rb");
-        if (tileFile == NULL) {
+        fopen(&_tileFile, _name.c_str(), "rb");
+        if (_tileFile == NULL) {
             if (Logger::ERROR_LOGGER != NULL) {
                 Logger::ERROR_LOGGER->log("DEM", "Cannot open file '" + string(name) + "'");
             }
-            maxLevel = -1;
-            scale = 1.0;
+            _maxLevel = -1;
+            _scale = 1.0;
         } else {
-            fread(&minLevel, sizeof(int), 1, tileFile);
-            fread(&maxLevel, sizeof(int), 1, tileFile);
-            fread(&tileSize, sizeof(int), 1, tileFile);
-            fread(&rootLevel, sizeof(int), 1, tileFile);
-            fread(&rootTx, sizeof(int), 1, tileFile);
-            fread(&rootTy, sizeof(int), 1, tileFile);
-            fread(&scale, sizeof(float), 1, tileFile);
+            fread(&_minLevel, sizeof(int), 1, _tileFile);
+            fread(&_maxLevel, sizeof(int), 1, _tileFile);
+            fread(&_tileSize, sizeof(int), 1, _tileFile);
+            fread(&_rootLevel, sizeof(int), 1, _tileFile);
+            fread(&_rootTx, sizeof(int), 1, _tileFile);
+            fread(&_rootTy, sizeof(int), 1, _tileFile);
+            fread(&_scale, sizeof(float), 1, _tileFile);
         }
 
-        this->deltaLevel = rootLevel == 0 ? deltaLevel : 0;
-        scale = scale * zscale;
+        this->_deltaLevel = _rootLevel == 0 ? deltaLevel : 0;
+        _scale = _scale * zscale;
 
-        int ntiles = minLevel + ((1 << (max(maxLevel - minLevel, 0) * 2 + 2)) - 1) / 3;
-        header = sizeof(float) + sizeof(int) * (6 + ntiles * 2);
-        offsets = new unsigned int[ntiles * 2];
-        if (tileFile != NULL) {
-            fread(offsets, sizeof(unsigned int) * ntiles * 2, 1, tileFile);
+        int ntiles = _minLevel + ((1 << (max(_maxLevel - _minLevel, 0) * 2 + 2)) - 1) / 3;
+        _header = sizeof(float) + sizeof(int) * (6 + ntiles * 2);
+        _offsets = new unsigned int[ntiles * 2];
+        if (_tileFile != NULL) {
+            fread(_offsets, sizeof(unsigned int) * ntiles * 2, 1, _tileFile);
 #ifndef SINGLE_FILE
-            fclose(tileFile);
-            tileFile = NULL;
+            fclose(_tileFile);
+            _tileFile = NULL;
 #endif
         }
 
-        if (key == NULL) {
-            key = new pthread_key_t;
-            pthread_key_create((pthread_key_t*) key, residualDelete);
+        if (_key == NULL) {
+            _key = new pthread_key_t;
+            pthread_key_create((pthread_key_t*)_key, residualDelete);
         }
 
-        assert(tileSize + 5 < MAX_TILE_SIZE);
-        assert(deltaLevel <= minLevel);
+        assert(_tileSize + 5 < MAX_TILE_SIZE);
+        assert(_deltaLevel <= _minLevel);
 
 #ifdef SINGLE_FILE
         mutex = new pthread_mutex_t;
@@ -135,7 +135,7 @@ ResidualProducer::~ResidualProducer()
     pthread_mutex_destroy((pthread_mutex_t*) mutex);
     delete (pthread_mutex_t*) mutex;
 #endif
-    delete[] offsets;
+    delete[] _offsets;
 }
 
 int ResidualProducer::getBorder()
@@ -145,28 +145,28 @@ int ResidualProducer::getBorder()
 
 int ResidualProducer::getMinLevel()
 {
-    return minLevel;
+    return _minLevel;
 }
 
 int ResidualProducer::getDeltaLevel()
 {
-    return deltaLevel;
+    return _deltaLevel;
 }
 
 void ResidualProducer::addProducer(ptr<ResidualProducer> p)
 {
-    producers.push_back(p);
+    _producers.push_back(p);
 }
 
 bool ResidualProducer::hasTile(int level, int tx, int ty)
 {
-    int l = level + deltaLevel - rootLevel;
-    if (l >= 0 && (tx >> l) == rootTx && (ty >> l) == rootTy) {
-        if (l <= maxLevel) {
+    int l = level + _deltaLevel - _rootLevel;
+    if (l >= 0 && (tx >> l) == _rootTx && (ty >> l) == _rootTy) {
+        if (l <= _maxLevel) {
             return true;
         }
-        for (unsigned int i = 0; i < producers.size(); ++i) {
-            if (producers[i]->hasTile(level + deltaLevel, tx, ty)) {
+        for (unsigned int i = 0; i < _producers.size(); ++i) {
+            if (_producers[i]->hasTile(level + _deltaLevel, tx, ty)) {
                 return true;
             }
         }
@@ -176,11 +176,11 @@ bool ResidualProducer::hasTile(int level, int tx, int ty)
 
 bool ResidualProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slot *data)
 {
-    int l = level + deltaLevel - rootLevel;
-    if (l >= 0 && (tx >> l) == rootTx && (ty >> l) == rootTy) {
-        if (l > maxLevel) {
-            for (unsigned int i = 0; i < producers.size(); ++i) {
-                producers[i]->doCreateTile(level + deltaLevel, tx, ty, data);
+    int l = level + _deltaLevel - _rootLevel;
+    if (l >= 0 && (tx >> l) == _rootTx && (ty >> l) == _rootTy) {
+        if (l > _maxLevel) {
+            for (unsigned int i = 0; i < _producers.size(); ++i) {
+                _producers[i]->doCreateTile(level +_deltaLevel, tx, ty, data);
             }
             return true;
         }
@@ -195,30 +195,30 @@ bool ResidualProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slot
     }
 
     level = l;
-    tx = tx - (rootTx << level);
-    ty = ty - (rootTy << level);
+    tx = tx - (_rootTx << level);
+    ty = ty - (_rootTy << level);
 
     CPUTileStorage<float>::CPUSlot *cpuData = dynamic_cast<CPUTileStorage<float>::CPUSlot*>(data);
     assert(cpuData != NULL);
     assert(dynamic_cast<CPUTileStorage<float>*>(cpuData->getOwner())->getChannels() == 1);
-    if ((int) name.size() == 0) {
-        tileSize = cpuData->getOwner()->getTileSize() - 5;
+    if ((int) _name.size() == 0) {
+        _tileSize = cpuData->getOwner()->getTileSize() - 5;
         readTile(level, tx, ty, NULL, NULL, NULL, cpuData->data);
     } else {
-        assert(cpuData->getOwner()->getTileSize() == tileSize + 5);
+        assert(cpuData->getOwner()->getTileSize() == _tileSize + 5);
 
-        unsigned char *tsData = (unsigned char*) pthread_getspecific(*((pthread_key_t*) key));
+        unsigned char *tsData = (unsigned char*) pthread_getspecific(*((pthread_key_t*)_key));
         if (tsData == NULL) {
             tsData = new unsigned char[MAX_TILE_SIZE * MAX_TILE_SIZE * 4];
-            pthread_setspecific(*((pthread_key_t*) key), tsData);
+            pthread_setspecific(*((pthread_key_t*)_key), tsData);
         }
         unsigned char *compressedData = tsData;
         unsigned char *uncompressedData = tsData + MAX_TILE_SIZE * MAX_TILE_SIZE * 2;
 
-        if (deltaLevel > 0 && level == deltaLevel) {
-            float *tmp = new float[(tileSize + 5) * (tileSize + 5)];
+        if (_deltaLevel > 0 && level == _deltaLevel) {
+            float *tmp = new float[(_tileSize + 5) * (_tileSize + 5)];
             readTile(0, 0, 0, compressedData, uncompressedData, NULL, cpuData->data);
-            for (int i = 1; i <= deltaLevel; ++i) {
+            for (int i = 1; i <= _deltaLevel; ++i) {
                 upsample(i, 0, 0, cpuData->data, tmp);
                 readTile(i, 0, 0, compressedData, uncompressedData, tmp, cpuData->data);
             }
@@ -234,34 +234,34 @@ bool ResidualProducer::doCreateTile(int level, int tx, int ty, TileStorage::Slot
 void ResidualProducer::swap(ptr<ResidualProducer> p)
 {
     TileProducer::swap(p);
-    std::swap(name, p->name);
-    std::swap(tileSize, p->tileSize);
-    std::swap(rootLevel, p->rootLevel);
-    std::swap(deltaLevel, p->deltaLevel);
-    std::swap(rootTx, p->rootTx);
-    std::swap(rootTy, p->rootTy);
-    std::swap(minLevel, p->minLevel);
-    std::swap(maxLevel, p->maxLevel);
-    std::swap(scale, p->scale);
-    std::swap(header, p->header);
-    std::swap(offsets, p->offsets);
-    std::swap(mutex, p->mutex);
-    std::swap(tileFile, p->tileFile);
-    std::swap(producers, p->producers);
+    std::swap(_name, p->_name);
+    std::swap(_tileSize, p->_tileSize);
+    std::swap(_rootLevel, p->_rootLevel);
+    std::swap(_deltaLevel, p->_deltaLevel);
+    std::swap(_rootTx, p->_rootTx);
+    std::swap(_rootTy, p->_rootTy);
+    std::swap(_minLevel, p->_minLevel);
+    std::swap(_maxLevel, p->_maxLevel);
+    std::swap(_scale, p->_scale);
+    std::swap(_header, p->_header);
+    std::swap(_offsets, p->_offsets);
+    std::swap(_mutex, p->_mutex);
+    std::swap(_tileFile, p->_tileFile);
+    std::swap(_producers, p->_producers);
 }
 
 int ResidualProducer::getTileSize(int level)
 {
-    return level < minLevel ? tileSize >> (minLevel - level) : tileSize;
+    return level < _minLevel ? _tileSize >> (_minLevel - level) : _tileSize;
 }
 
 int ResidualProducer::getTileId(int level, int tx, int ty)
 {
-    if (level < minLevel) {
+    if (level < _minLevel) {
         return level;
     } else {
-        int l = max(level - minLevel, 0);
-        return minLevel + tx + ty * (1 << l) + ((1 << (2 * l)) - 1) / 3;
+        int l = max(level - _minLevel, 0);
+        return _minLevel + tx + ty * (1 << l) + ((1 << (2 * l)) - 1) / 3;
     }
 }
 
@@ -271,24 +271,24 @@ void ResidualProducer::readTile(int level, int tx, int ty,
 {
     int tilesize = getTileSize(level) + 5;
 
-    if ((int) name.size() == 0) {
+    if ((int) _name.size() == 0) {
         if (tile != NULL) {
             for (int j = 0; j < tilesize; ++j) {
                 for (int i = 0; i < tilesize; ++i) {
-                    result[i + j * (tileSize + 5)] = tile[i + j * (tileSize + 5)];
+                    result[i + j * (_tileSize + 5)] = tile[i + j * (_tileSize + 5)];
                 }
             }
         } else {
             for (int j = 0; j < tilesize; ++j) {
                 for (int i = 0; i < tilesize; ++i) {
-                    result[i + j * (tileSize + 5)] = 0.f;
+                    result[i + j * (_tileSize + 5)] = 0.f;
                 }
             }
         }
     } else {
         int tileid = getTileId(level, tx, ty);
-        int fsize = offsets[2 * tileid + 1] - offsets[2 * tileid];
-        assert(fsize < (tileSize + 5) * (tileSize + 5) * 2);
+        int fsize = _offsets[2 * tileid + 1] - _offsets[2 * tileid];
+        assert(fsize < (_tileSize + 5) * (_tileSize + 5) * 2);
 
 #ifdef SINGLE_FILE
         pthread_mutex_lock((pthread_mutex_t*) mutex);
@@ -297,8 +297,8 @@ void ResidualProducer::readTile(int level, int tx, int ty,
         pthread_mutex_unlock((pthread_mutex_t*) mutex);
 #else
         FILE *file;
-        fopen(&file, name.c_str(), "rb");
-        fseek64(file, header + offsets[2 * tileid], SEEK_SET);
+        fopen(&file, _name.c_str(), "rb");
+        fseek64(file, _header + _offsets[2 * tileid], SEEK_SET);
         fread(compressedData, fsize, 1, file);
         fclose(file);
 #endif
@@ -322,9 +322,9 @@ void ResidualProducer::readTile(int level, int tx, int ty,
             for (int j = 0; j < tilesize; ++j) {
                 for (int i = 0; i < tilesize; ++i) {
                     int off = 2 * (i + j * tilesize);
-                    int toff = i + j * (tileSize + 5);
+                    int toff = i + j * (_tileSize + 5);
                     short z = short(uncompressedData[off + 1]) << 8 | short(uncompressedData[off]);
-                    result[toff] = tile[toff] + z * scale;
+                    result[toff] = tile[toff] + z * _scale;
                 }
             }
         } else {
@@ -332,7 +332,7 @@ void ResidualProducer::readTile(int level, int tx, int ty,
                 for (int i = 0; i < tilesize; ++i) {
                     int off = 2 * (i + j * tilesize);
                     short z = short(uncompressedData[off + 1]) << 8 | short(uncompressedData[off]);
-                    result[i + j * (tileSize + 5)] = z * scale;
+                    result[i + j * (_tileSize + 5)] = z * _scale;
                 }
             }
         }
@@ -341,7 +341,7 @@ void ResidualProducer::readTile(int level, int tx, int ty,
 
 void ResidualProducer::upsample(int level, int tx, int ty, float *parentTile, float *result)
 {
-    int n = tileSize + 5;
+    int n = _tileSize + 5;
     int tilesize = getTileSize(level);
     int px = 1 + (tx % 2) * tilesize / 2;
     int py = 1 + (ty % 2) * tilesize / 2;

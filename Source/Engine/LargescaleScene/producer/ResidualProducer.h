@@ -1,27 +1,5 @@
 /*
  * LargescaleScene: a procedural landscape rendering library.
- * Copyright (c) 2008-2011 INRIA
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-/*
- * LargescaleScene is distributed under a dual-license scheme.
- * You can obtain a specific license from Inria: LargescaleScene-licensing@inria.fr.
- */
-
-/*
  * Authors:jiangsi.
  */
 
@@ -142,14 +120,14 @@ private:
     /**
      * The name of the file containing the residual tiles to load.
      */
-    string name;
+    string _name;
 
     /**
      * The size of the tiles whose level (on disk) is at least #minLevel.
      * This size does not include the borders. A tile contains
      * (tileSize+5)*(tileSize+5) samples.
      */
-    int tileSize;
+    int _tileSize;
 
     /**
      * The level of the root of the tile pyramid managed by this %producer
@@ -157,13 +135,13 @@ private:
      * different from 0 when multiple pyramids are used, to provide more
      * details in some regions.
      */
-    int rootLevel;
+    int _rootLevel;
 
     /**
      * The stored tiles level that must be considered as the root level in
      * this %producer. Must be less than or equal to #getMinLevel().
      */
-    int deltaLevel;
+    int _deltaLevel;
 
     /**
      * The logical x coordinate of the root of the tile pyramid managed
@@ -171,7 +149,7 @@ private:
      * %terrain. Can be different from 0 when multiple pyramids are used,
      * to provide more details in some regions.
      */
-    int rootTx;
+    int _rootTx;
 
     /**
      * The logical y coordinate of the root of the tile pyramid managed
@@ -179,57 +157,57 @@ private:
      * %terrain. Can be different from 0 when multiple pyramids are used,
      * to provide more details in some regions.
      */
-    int rootTy;
+    int _rootTy;
 
     /**
      * The stored tile level of the first tile of size #tileSize.
      * See \ref sec-residual.
      */
-    int minLevel;
+    int _minLevel;
 
     /**
      * The maximum level of the stored tiles on disk (inclusive, and
      * relatively to #rootLevel).
      */
-    int maxLevel;
+    int _maxLevel;
 
     /**
      * A scaling factor to be applied to all residuals read from disk.
      */
-    float scale;
+    float _scale;
 
     /**
      * Offset of the first stored tile on disk. The offsets indicated in
      * the tile offsets array #offsets are relative to this offset.
      */
-    unsigned int header;
+    unsigned int _header;
 
     /**
      * The offsets of each tile on disk, relatively to #offset, for each
      * tile id (see #getTileId).
      */
-    unsigned int* offsets;
+    unsigned int* _offsets;
 
     /**
      * A mutex used to serializes accesses to the file storing the tiles.
      */
-    void *mutex;
+    void *_mutex;
 
     /**
      * The file storing the residual tiles on disk.
      */
-    FILE *tileFile;
+    FILE *_tileFile;
 
     /**
      * The "subproducers" providing more details in some regions.
      * Each subproducer can have its own subproducers, recursively.
      */
-    vector< ptr<ResidualProducer> > producers;
+    vector< ptr<ResidualProducer> > _producers;
 
     /**
      * A key to store thread specific buffers used to produce the tiles.
      */
-    static void *key;
+    static void *_key;
 
     /**
      * Returns the size of tiles of the given level (without borders).

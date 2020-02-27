@@ -122,35 +122,35 @@ private:
          * The SceneNode describing the %terrain position and its associated
          * data (via TileSampler fields).
          */
-        ptr<SceneNode> n;
+        ptr<SceneNode> _pSceneNode;
 
         /**
          * The TerrainNode describing the %terrain and its quadtree.
          */
-        ptr<TerrainNode> t;
+        ptr<TerrainNode> _pTerrainNode;
 
         /**
          * The mesh to be drawn for each leaf quad.
          */
-        ptr<MeshBuffers> m;
+        ptr<MeshBuffers> _pMeshBuffers;
 
         /**
          * True to draw only visible leaf quads, false to draw all leaf quads.
          */
-        bool culling;
+        bool _bCulling;
 
         /**
          * True if one the TileSampler associated with this terrain
          * uses the asynchronous mode.
          */
-        bool async;
+        bool _bAsync;
 
         /**
          * Number of primitives (triangles, lines, etc) per *quarter* of
          * the grid mesh. Used to draw only parts of the mesh to fill holes
          * when using asynchronous mode.
          */
-        int gridSize;
+        int _iGridSize;
 
         /**
          * Creates a new Impl.
@@ -160,7 +160,7 @@ private:
          * @param m the mesh to be drawn for each leaf quad.
          * @param culling true to draw only visible leaf quads.
          */
-        Impl(ptr<SceneNode> n, ptr<TerrainNode> t, ptr<MeshBuffers> m, bool culling);
+        Impl(ptr<SceneNode> pSceneNode, ptr<TerrainNode> pTerrainNode, ptr<MeshBuffers> pMeshBuffers, bool bCulling);
 
         /**
          * Deletes this Impl.
@@ -176,7 +176,7 @@ private:
          * @param q the %terrain quadtree to be drawn.
          * @param uniforms the TileSampler associated with the %terrain.
          */
-        void findDrawableQuads(ptr<TerrainQuad> q, const std::vector< ptr<TileSampler> > &uniforms);
+        void findDrawableQuads(ptr<TerrainQuad> pTerrainQuad, const std::vector< ptr<TileSampler> > &pUniforms);
 
         /**
          * Draw the mesh #m for the leaf quads of the given quadtree. Before drawing each
@@ -186,7 +186,7 @@ private:
          * @param q the %terrain quadtree to be drawn.
          * @param uniforms the TileSampler associated with the %terrain.
          */
-        void drawQuad(ptr<TerrainQuad> q, const std::vector< ptr<TileSampler> > &uniforms);
+        void drawQuad(ptr<TerrainQuad> pTerrainQuad, const std::vector< ptr<TileSampler> > &pUniforms);
     };
 };
 

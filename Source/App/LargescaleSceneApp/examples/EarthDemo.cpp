@@ -398,28 +398,28 @@ void initLargescaleSceneDemo(const string &archive, const string &data, const st
     //} else {
     //    resLoader->addArchive("archives/" + archive);
     //}
-	resLoader->addArchive("G:/IceCrystal/ProjectData/archives/earth/earth.xml");
-    resLoader->addPath("G:/IceCrystal/ProjectData/textures/atmo");
-    resLoader->addPath("G:/IceCrystal/ProjectData/textures/clouds");
-    resLoader->addPath("G:/IceCrystal/ProjectData/textures/rivers");
-    resLoader->addPath("G:/IceCrystal/ProjectData/textures/roads");
-    resLoader->addPath("G:/IceCrystal/ProjectData/textures/trees");
-    resLoader->addPath("G:/IceCrystal/ProjectData/textures");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/atmo");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/camera");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/clouds");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/earth");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/elevation");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/ocean");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/ortho");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/rivers");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/terrain");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/trees");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders/util");
-    resLoader->addPath("G:/IceCrystal/ProjectData/shaders");
-    resLoader->addPath("G:/IceCrystal/ProjectData/meshes");
-    resLoader->addPath("G:/IceCrystal/ProjectData/methods");
-    resLoader->addPath("G:/IceCrystal/ProjectData/ui");
+	resLoader->addArchive("archives/earth/earth.xml");
+    resLoader->addPath("textures/atmo");
+    resLoader->addPath("textures/clouds");
+    resLoader->addPath("textures/rivers");
+    resLoader->addPath("textures/roads");
+    resLoader->addPath("textures/trees");
+    resLoader->addPath("textures");
+    resLoader->addPath("shaders/atmo");
+    resLoader->addPath("shaders/camera");
+    resLoader->addPath("shaders/clouds");
+    resLoader->addPath("shaders/earth");
+    resLoader->addPath("shaders/elevation");
+    resLoader->addPath("shaders/ocean");
+    resLoader->addPath("shaders/ortho");
+    resLoader->addPath("shaders/rivers");
+    resLoader->addPath("shaders/terrain");
+    resLoader->addPath("shaders/trees");
+    resLoader->addPath("shaders/util");
+    resLoader->addPath("shaders");
+    resLoader->addPath("meshes");
+    resLoader->addPath("methods");
+    resLoader->addPath("ui");
     resLoader->addPath(data);
 
     ptr<ResourceManager> resManager = new ResourceManager(resLoader, 8);
@@ -459,7 +459,7 @@ int main(int argc, char *argv[])
     //} else {
     //    initLargescaleSceneDemo(argv[1], argv[2], argv[3]);
     //}
-	initLargescaleSceneDemo("G:\\Proland\\data\\earth.xml", "G:\\Proland\\data", "");
+	initLargescaleSceneDemo("", "G:\\Proland\\data", "");
     app->start();
     return 0;
 }
