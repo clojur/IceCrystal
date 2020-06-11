@@ -315,8 +315,12 @@ void ResidualProducer::readTile(int level, int tx, int ty,
             (TIFFReadWriteProc) mfs_read, (TIFFReadWriteProc) mfs_write, (TIFFSeekProc) mfs_lseek,
             (TIFFCloseProc) mfs_close, (TIFFSizeProc) mfs_size, (TIFFMapFileProc) mfs_map,
             (TIFFUnmapFileProc) mfs_unmap);
-        TIFFReadEncodedStrip(tf, 0, uncompressedData, (tsize_t) -1);
-        TIFFClose(tf);
+		if (tf)
+		{
+			TIFFReadEncodedStrip(tf, 0, uncompressedData, (tsize_t)-1);
+			TIFFClose(tf);
+		}
+
 
         if (tile != NULL) {
             for (int j = 0; j < tilesize; ++j) {
