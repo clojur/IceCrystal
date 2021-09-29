@@ -391,38 +391,39 @@ void initLargescaleSceneDemo(const string &archive, const string &data, const st
         Logger::ERROR_LOGGER = new FileLogger("ERROR", out, Logger::ERROR_LOGGER);
     }
 
-    ptr<XMLResourceLoader> resLoader = new XMLResourceLoader();
-    //if (archive[0] == '/') {
-    //    resLoader->addArchive(archive);
-    //    resLoader->addPath(archive.substr(0, archive.find_last_of('/')));
-    //} else {
-    //    resLoader->addArchive("archives/" + archive);
-    //}
-	resLoader->addArchive("archives/earth/earth.xml");
-    resLoader->addPath("textures/atmo");
-    resLoader->addPath("textures/clouds");
-    resLoader->addPath("textures/rivers");
-    resLoader->addPath("textures/roads");
-    resLoader->addPath("textures/trees");
-    resLoader->addPath("textures");
-    resLoader->addPath("shaders/atmo");
-    resLoader->addPath("shaders/camera");
-    resLoader->addPath("shaders/clouds");
-    resLoader->addPath("shaders/earth");
-    resLoader->addPath("shaders/elevation");
-    resLoader->addPath("shaders/ocean");
-    resLoader->addPath("shaders/ortho");
-    resLoader->addPath("shaders/rivers");
-    resLoader->addPath("shaders/terrain");
-    resLoader->addPath("shaders/trees");
-    resLoader->addPath("shaders/util");
-    resLoader->addPath("shaders");
-    resLoader->addPath("meshes");
-    resLoader->addPath("methods");
-    resLoader->addPath("ui");
-    resLoader->addPath(data);
+	ptr<XMLResourceLoader> resLoader = new XMLResourceLoader();
+	if (archive[0] == '/') {
+		resLoader->addArchive(archive);
+		resLoader->addPath(archive.substr(0, archive.find_last_of('/')));
+	}
+	else {
+		resLoader->addArchive("archives/" + archive);
+	}
+	resLoader->addPath("textures/atmo");
+	resLoader->addPath("textures/clouds");
+	resLoader->addPath("textures/rivers");
+	resLoader->addPath("textures/roads");
+	resLoader->addPath("textures/trees");
+	resLoader->addPath("textures");
+	resLoader->addPath("shaders/atmo");
+	resLoader->addPath("shaders/camera");
+	resLoader->addPath("shaders/clouds");
+	resLoader->addPath("shaders/earth");
+	resLoader->addPath("shaders/elevation");
+	resLoader->addPath("shaders/ocean");
+	resLoader->addPath("shaders/ortho");
+	resLoader->addPath("shaders/rivers");
+	resLoader->addPath("shaders/terrain");
+	resLoader->addPath("shaders/trees");
+	resLoader->addPath("shaders/util");
+	resLoader->addPath("shaders");
+	resLoader->addPath("meshes");
+	resLoader->addPath("methods");
+	resLoader->addPath("ui");
+	resLoader->addPath(data);
 
-    ptr<ResourceManager> resManager = new ResourceManager(resLoader, 8);
+	ptr<ResourceManager> resManager = new ResourceManager(resLoader, 8);
+
 
 //    ptr<MultithreadScheduler> s = resManager->loadResource("defaultScheduler").cast<MultithreadScheduler>();
 //    s->monitorTask("CreateCPUElevationTile");
@@ -454,12 +455,28 @@ int main(int argc, char *argv[])
     initForestPlugin();
 
     atexit(Object::exit);
-    //if (argc == 3) {
-    //    initLargescaleSceneDemo(argv[1], argv[2], "");
-    //} else {
-    //    initLargescaleSceneDemo(argv[1], argv[2], argv[3]);
-    //}
-	initLargescaleSceneDemo("", "G:\\Proland\\data", "");
+    if (argc == 3) {
+        initLargescaleSceneDemo(argv[1], argv[2], "");
+    } else {
+        initLargescaleSceneDemo(argv[1], argv[2], argv[3]);
+    }
+	//initLargescaleSceneDemo("", "F:/EngineProject/proland-4.0/data", "");
     app->start();
     return 0;
+
+	//assert(argc > 2);
+	//initTerrainPlugin();
+	//initEditPlugin();
+	//initOceanPlugin();
+	//initForestPlugin();
+
+	//atexit(Object::exit);
+	//if (argc == 3) {
+ //       initLargescaleSceneDemo(argv[1], argv[2], "");
+	//}
+	//else {
+ //       initLargescaleSceneDemo(argv[1], argv[2], argv[3]);
+	//}
+	//app->start();
+	//return 0;
 }
