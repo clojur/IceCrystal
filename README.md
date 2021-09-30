@@ -61,3 +61,5 @@ LargescaleScene在以下方面基于Soul库：
 ![Terrain3](https://github.com/clojur/IceCrystal/blob/master/Images/hh.png)
 ![Terrain4](https://github.com/clojur/IceCrystal/blob/master/Images/hh1.png)
 ![Terrain5](https://github.com/clojur/IceCrystal/blob/master/Images/sun.png)
+![Terrain6](https://github.com/clojur/IceCrystal/blob/master/Images/w2.png)
+![Terrain7](https://github.com/clojur/IceCrystal/blob/master/Images/water.png)
