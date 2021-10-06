@@ -45,6 +45,8 @@ LargescaleScene在以下方面基于Soul库：
 
 # IceCrystal构建
 
+**特别注意：目前只有WIN32 Debug能编译通过运行，其他编译版本的配置需自行搞定**
+
 1. 进入IceCrystal目录
 
 2. 新建一个build目录
@@ -52,6 +54,9 @@ LargescaleScene在以下方面基于Soul库：
 3. 进入build目录
 
 4. cmake ../
+
+或者使用CmakeGUI，注意选择WIN32平台选项
+
 
 # 效果演示
 
